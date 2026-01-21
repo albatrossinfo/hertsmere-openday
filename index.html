@@ -111,6 +111,64 @@ to { background-position: 100px 0; }
     100% { background-position: 100% 50%; }
 }
 
+/* New Keyframes for Modern Interactions */
+@keyframes shimmerGold {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(214, 183, 150, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(214, 183, 150, 0.2); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* FAQ Styles */
+.faq-item {
+    transition: all 0.3s ease;
+}
+
+.faq-item.active {
+    border-left: 4px solid #d6b796;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px !important;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Ripple Effect */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    animation: ripple 0.6s ease-out;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
 .animate-shake {
 animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
 }
@@ -1258,6 +1316,107 @@ animation-play-state: paused;
         </div>
     </section>
 
+
+    <!-- FAQ SECTION -->
+    <section class="bg-[#F5F5F3] py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif font-semibold text-[#2d3d4d] text-center mb-4 tracking-tight" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">Frequently Asked Questions</h2>
+            <p class="text-center text-gray-600 mb-12 font-work max-w-2xl mx-auto">Everything you need to know about the Open Day</p>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Do I need to be a golfer to attend the Open Day?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">Not at all. The Open Day is designed for complete beginners through to experienced players. You can explore the facilities, enjoy the Toptracer range, and have lunch at Script without ever touching a golf club.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Is there any obligation to join if I attend?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">Absolutely none. The Open Day is a chance to experience The Hertsmere and ask questions. There's no pressure and no hard sell.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">What's the difference between the Flexi tiers?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">The tiers are based on how often you play. Flexi 1 (£250/year, 100 points) suits occasional golfers. Flexi 2 (£460/year, 200 points) is most popular for regular players. Flexi 3 (£790/year, 360 points) is for dedicated golfers who play weekly. All tiers include the same benefits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Can I bring my family to the Open Day?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">Please do. We have coaching sessions for children, Toptracer games the whole family can enjoy, and Script Restaurant welcomes everyone.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">What happens to unused points?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">They roll over. Unlike traditional memberships, your points carry forward. No penalties, no wasted money.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">How do I claim the join on the day bonus?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">Complete your membership signup during the Open Day and bonus points are added automatically. Flexi 1 gets £50, Flexi 2 gets £100, Flexi 3 gets £150.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Is there parking available?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-colors"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">Yes, free parking for over 200 cars right next to the clubhouse.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- NEW SECTION: Gallery Marquee -->
     <section class="bg-black py-16 overflow-hidden border-t border-[#fcfaf7]/10">
         <div class="flex overflow-hidden space-x-6 group">
@@ -1349,6 +1508,30 @@ animation-play-state: paused;
         </div>
     </section>
 
+
+    <!-- FINAL CTA SECTION -->
+    <section class="bg-[#2d3d4d] py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="font-serif font-semibold text-white mb-6 tracking-tight leading-tight" style="font-size: clamp(1.75rem, 4vw, 2.75rem);">
+                Ready to see what golf without the barriers looks like?
+            </h2>
+            <p class="text-gray-300 font-work text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                Join us on Sunday 8th February. Free entry, free coaching, free food. No obligation.
+            </p>
+            
+            <a href="#booking" class="inline-block bg-[#00a1a2] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#008f90] transition-all duration-300 transform hover:scale-105 hover:shadow-[0_10px_40px_rgba(0,161,162,0.3)] font-work mb-6">
+                Book Your Free Place
+            </a>
+            
+            <p class="text-gray-400 font-work mt-6">
+                Or call us on <a href="tel:02082071700" class="text-[#d6b796] hover:text-white transition-colors border-b border-[#d6b796]/30 hover:border-white">020 8207 1700</a>
+            </p>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="bg-[#151e26] text-white py-20 px-6 border-t border-[#d6b796]/20 relative">
         <div class="max-w-7xl mx-auto relative z-10">
@@ -1681,6 +1864,79 @@ animation-play-state: paused;
                 });
             });
         }
+
+        /* -------------------------------------------------------------------------- */
+        /*                             FAQ Toggle Function                            */
+        /* -------------------------------------------------------------------------- */
+        function toggleFaq(button) {
+            const faqItem = button.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').style.maxHeight = '0';
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
+        /* -------------------------------------------------------------------------- */
+        /*                        Ripple Effect on Buttons                            */
+        /* -------------------------------------------------------------------------- */
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple-effect');
+            
+            const existingRipple = button.querySelector('.ripple-effect');
+            if (existingRipple) {
+                existingRipple.remove();
+            }
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        // Add ripple effect to CTA buttons
+        document.querySelectorAll('a[href="#booking"], .btn, button').forEach(button => {
+            if (!button.onclick && !button.getAttribute('onclick')) {
+                button.addEventListener('click', createRipple);
+            }
+        });
+
+        /* -------------------------------------------------------------------------- */
+        /*                        Smooth Scroll Progress                              */
+        /* -------------------------------------------------------------------------- */
+        function initScrollProgress() {
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = 'position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #00a1a2, #d6b796); z-index: 9999; transition: width 0.1s;';
+            document.body.appendChild(progressBar);
+            
+            window.addEventListener('scroll', () => {
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+        }
+
+        // Initialize scroll progress
+        initScrollProgress();
+
     </script>
 
 </body></html>
