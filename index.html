@@ -6,14 +6,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
 <style>
 /* Global Fonts - Mapped to Request */
-body { font-family: 'Work Sans', sans-serif; font-weight: 400; }
-h1, h2, h3, h4, h5, h6, .font-serif, .font-zilla { font-family: 'Zilla Slab', serif; }
-.font-work { font-family: 'Work Sans', sans-serif; }
-button, .btn { font-family: 'Work Sans', sans-serif; font-weight: 500; }
+body {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif, .font-zilla {
+    font-family: 'Zilla Slab', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+p, span, li, a, label, .font-work {
+    font-family: 'Work Sans', sans-serif;
+}
+
+button, .btn, input, textarea, select {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+}
 
 /* Custom Colors */
 .text-gold { color: #d6b796; }
@@ -312,7 +332,7 @@ filter: drop-shadow(0 0 2px rgba(214, 183, 150, 0.5));
 }
 }
 .testimonial-quote-mark {
-font-family: Georgia, serif;
+font-family: 'Zilla Slab', Georgia, serif;
 font-size: 5rem;
 line-height: 1;
 color: #d6b796;
@@ -393,7 +413,7 @@ animation-play-state: paused;
 
         <div class="relative z-20 flex-1 flex flex-col items-center justify-center px-6 text-center w-full max-w-[90rem] mx-auto -mt-16">
             <h1 class="text-white font-serif leading-[1.1] animate-fade-in-up delay-100 tracking-tight drop-shadow-xl font-bold" style="font-size: clamp(2.5rem, 5vw, 4rem);">
-                Your perfect Saturday <span class="block italic text-[#d6b796] mt-2 font-serif">starts here.</span>
+                Your perfect Sunday <span class="block italic text-[#d6b796] mt-2 font-serif">starts here.</span>
             </h1>
             <p class="leading-relaxed animate-fade-in-up delay-200 font-normal text-gray-200/90 mt-6 mb-10 max-w-[600px] mx-auto drop-shadow-md font-work" style="font-size: clamp(1rem, 1.5vw, 1.25rem);">
                 Join us for a free Membership Open Day. Experience complimentary coaching, course tours, and Toptracer competitions.
@@ -1333,6 +1353,7 @@ animation-play-state: paused;
     <footer class="bg-[#151e26] text-white py-20 px-6 border-t border-[#d6b796]/20 relative">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+                <!-- Brand/Address -->
                 <div>
                     <div class="flex items-center gap-3 mb-8">
                         <div class="text-[#d6b796]">
@@ -1348,46 +1369,51 @@ animation-play-state: paused;
                     </p>
                     <a href="https://maps.google.com/?q=The+Hertsmere" target="_blank" class="text-[#d6b796] text-sm border-b border-[#d6b796]/30 pb-0.5 hover:text-white hover:border-white transition-colors font-work">Get Directions</a>
                 </div>
+
+                <!-- Explore -->
                 <div>
-                    <h4 class="text-[#d6b796] text-xs uppercase tracking-widest mb-8 font-semibold font-work">The Club</h4>
+                    <h4 class="text-[#d6b796] text-xs uppercase tracking-widest mb-8 font-semibold font-work" style="letter-spacing: 0.15em;">Explore</h4>
                     <ul class="space-y-4 text-sm font-light font-work">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Membership</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Visitor Booking</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Society Days</a></li>
+                        <li><a href="https://www.thehertsmere.co.uk/the-course/" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">The Course</a></li>
+                        <li><a href="https://www.thehertsmere.co.uk/driving-range/" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Toptracer Range</a></li>
+                        <li><a href="https://www.thehertsmere.co.uk/script-restaurant/" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Script Restaurant</a></li>
+                        <li><a href="https://www.thehertsmere.co.uk/coaching/" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Coaching</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact -->
                 <div>
-                    <h4 class="text-[#d6b796] text-xs uppercase tracking-widest mb-8 font-semibold font-work">Facilities</h4>
+                    <h4 class="text-[#d6b796] text-xs uppercase tracking-widest mb-8 font-semibold font-work" style="letter-spacing: 0.15em;">Contact</h4>
                     <ul class="space-y-4 text-sm font-light font-work">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">The Course</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Toptracer Range</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">Script Restaurant</a></li>
+                        <li><a href="tel:02082071700" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">020 8207 1700</a></li>
+                        <li><a href="mailto:info@thehertsmere.co.uk" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">info@thehertsmere.co.uk</a></li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="text-[#d6b796] text-xs uppercase tracking-widest mb-8 font-semibold font-work">Stay Updated</h4>
-                    <p class="text-gray-400 text-sm mb-6 font-light font-work">Subscribe to receive the latest news and offers.</p>
-                    <div class="flex gap-0">
-                        <input type="email" placeholder="Email address" class="bg-white/5 border border-gray-700 px-4 py-3 w-full text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#d6b796] transition-colors font-work">
-                        <button class="bg-[#00a1a2] px-5 hover:bg-[#008f90] transition-colors flex items-center justify-center">
-                            <iconify-icon icon="solar:arrow-right-linear" width="16" height="16"></iconify-icon>
-                        </button>
+                    <div class="flex gap-6 mt-8 text-gray-500">
+                        <a href="https://www.instagram.com/thehertsmere/" target="_blank" class="hover:text-[#d6b796] transition-colors transform hover:scale-110">
+                            <iconify-icon icon="brandico:instagram" width="20" height="20"></iconify-icon>
+                        </a>
+                        <a href="https://www.facebook.com/TheHertsmere/" target="_blank" class="hover:text-[#d6b796] transition-colors transform hover:scale-110">
+                            <iconify-icon icon="brandico:facebook" width="20" height="20"></iconify-icon>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Open Day -->
+                <div>
+                    <h4 class="text-[#d6b796] text-xs uppercase tracking-widest mb-8 font-semibold font-work" style="letter-spacing: 0.15em;">Open Day</h4>
+                    <p class="text-gray-400 text-sm mb-3 font-work">Sunday 8th February</p>
+                    <p class="text-gray-400 text-sm mb-6 font-work">10am to 2pm</p>
+                    <a href="#booking" class="inline-block bg-[#00a1a2] text-white px-6 py-3 rounded text-sm font-semibold hover:bg-[#008f90] transition-all duration-200 transform hover:scale-105 hover:shadow-lg font-work">
+                        Book Your Place
+                    </a>
+                </div>
             </div>
-            
+
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
-                <p class="text-gray-500 text-xs tracking-wide font-work">© 2024 The Hertsmere. All rights reserved.</p>
-                <div class="flex gap-8 mt-6 md:mt-0 text-gray-500">
-                    <a href="#" class="hover:text-[#d6b796] transition-colors transform hover:scale-110">
-                        <iconify-icon icon="brandico:instagram" width="20" height="20"></iconify-icon>
-                    </a>
-                    <a href="#" class="hover:text-[#d6b796] transition-colors transform hover:scale-110">
-                        <iconify-icon icon="brandico:twitter-bird" width="20" height="20"></iconify-icon>
-                    </a>
-                    <a href="#" class="hover:text-[#d6b796] transition-colors transform hover:scale-110">
-                        <iconify-icon icon="brandico:facebook" width="20" height="20"></iconify-icon>
-                    </a>
+                <p class="text-gray-500 text-xs tracking-wide font-work">© 2026 The Hertsmere Golf Club. All rights reserved.</p>
+                <div class="flex gap-6 mt-6 md:mt-0 text-gray-500 text-xs">
+                    <a href="#" class="hover:text-[#d6b796] transition-colors font-work">Privacy Policy</a>
+                    <a href="#" class="hover:text-[#d6b796] transition-colors font-work">Terms of Use</a>
                 </div>
             </div>
         </div>
@@ -1602,8 +1628,8 @@ animation-play-state: paused;
         function openVideoModal() {
             const modal = document.getElementById('video-modal');
             const iframe = document.getElementById('youtube-frame');
-            // Replace with actual video ID
-            iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0"; 
+            // Vimeo video
+            iframe.src = "https://player.vimeo.com/video/678198255?autoplay=1&title=0&byline=0&portrait=0"; 
             
             openModal('video-modal');
         }
