@@ -165,6 +165,31 @@ to { background-position: 100px 0; }
 }
 
 /* Smooth scroll */
+
+/* Carousel Animations */
+@keyframes ken-burns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
+
+.carousel-slide[data-active="true"] {
+    opacity: 1 !important;
+    z-index: 1;
+}
+
+.carousel-slide[data-active="true"] > div:first-child {
+    animation: ken-burns 8s ease-out forwards;
+}
+
+.carousel-dot.active {
+    width: 2rem;
+    background-color: #d6b796;
+}
+
+.group:hover .carousel-prev,
+.group:hover .carousel-next {
+    opacity: 1;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -1414,94 +1439,93 @@ animation-play-state: paused;
             </div>
         </div>
     </section>
-    <!-- NEW SECTION: Gallery Marquee -->
-    <section class="bg-black py-16 overflow-hidden border-t border-[#fcfaf7]/10">
-        <div class="flex overflow-hidden space-x-6 group">
-            <div class="flex space-x-6 animate-[scrollMarquee_40s_linear_infinite] group-hover:[animation-play-state:paused] min-w-full">
-                <!-- 1 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/547ab195-6fd7-44b9-ac76-0d5dee1e30d7_1600w.jpg" alt="Aerial" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
+    <!-- Immersive Gallery Carousel -->
+    <section class="relative w-full h-[70vh] md:h-[80vh] bg-[#2d3d4d] overflow-hidden group">
+        
+        <!-- Slides Container -->
+        <div class="carousel-container relative w-full h-full">
+            
+            <!-- Slide 1 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out" data-active="true">
+                <div class="absolute inset-0 bg-cover bg-center transform scale-100" 
+                     style="background-image: url('https://www.thehertsmere.co.uk/wp-content/uploads/2022/01/IMG_0221-2300x1300.jpg');">
                 </div>
-                <!-- 2 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/086922c9-5d7c-4ef4-a51e-ab9693b0758c_800w.jpg" alt="Range Night" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 3 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dc7c34e3-f34e-4bc7-a307-e08c076c7af0_800w.jpg" alt="Course" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 4 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df0a896f-0cb2-46b9-92ee-12643b30c549_800w.jpg" alt="Restaurant" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 5 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Coaching" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 6 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2021/07/hole-11-IMG_7346-copy--2300x1300.jpg" alt="Fairway" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 7 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2021/07/hole-18-IMG_7392-Edit-2300x1300.jpg" alt="Green" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 8 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2021/07/hole-4-IMG_7303-Edit-2300x1300.jpg" alt="Bunker" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 9 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2022/01/IMG_0221-2300x1300.jpg" alt="Overhead" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 10 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/086922c9-5d7c-4ef4-a51e-ab9693b0758c_800w.jpg" alt="Toptracer" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <div class="absolute bottom-12 left-8 md:left-16 text-white">
+                    <span class="text-[#d6b796] text-sm font-semibold uppercase tracking-wider mb-2 block font-work">The Course</span>
+                    <h3 class="font-serif text-2xl md:text-4xl font-semibold">180 acres of parkland perfection</h3>
                 </div>
             </div>
-            <!-- Duplicate for infinite loop -->
-            <div class="flex space-x-6 animate-[scrollMarquee_40s_linear_infinite] group-hover:[animation-play-state:paused] min-w-full" aria-hidden="true">
-               <!-- 1 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/547ab195-6fd7-44b9-ac76-0d5dee1e30d7_1600w.jpg" alt="Aerial" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
+            
+            <!-- Slide 2 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <div class="absolute inset-0 bg-cover bg-center transform scale-100" 
+                     style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/086922c9-5d7c-4ef4-a51e-ab9693b0758c_800w.jpg');">
                 </div>
-                <!-- 2 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/086922c9-5d7c-4ef4-a51e-ab9693b0758c_800w.jpg" alt="Range Night" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 3 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dc7c34e3-f34e-4bc7-a307-e08c076c7af0_800w.jpg" alt="Course" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 4 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df0a896f-0cb2-46b9-92ee-12643b30c549_800w.jpg" alt="Restaurant" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 5 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Coaching" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 6 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2021/07/hole-11-IMG_7346-copy--2300x1300.jpg" alt="Fairway" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 7 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2021/07/hole-18-IMG_7392-Edit-2300x1300.jpg" alt="Green" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 8 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2021/07/hole-4-IMG_7303-Edit-2300x1300.jpg" alt="Bunker" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 9 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://www.thehertsmere.co.uk/wp-content/uploads/2022/01/IMG_0221-2300x1300.jpg" alt="Overhead" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
-                </div>
-                <!-- 10 -->
-                <div class="w-[300px] md:w-[400px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 bg-[#1c2631]">
-                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/086922c9-5d7c-4ef4-a51e-ab9693b0758c_800w.jpg" alt="Toptracer" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <div class="absolute bottom-12 left-8 md:left-16 text-white">
+                    <span class="text-[#d6b796] text-sm font-semibold uppercase tracking-wider mb-2 block font-work">Toptracer Range</span>
+                    <h3 class="font-serif text-2xl md:text-4xl font-semibold">26 floodlit bays, open until 10pm</h3>
                 </div>
             </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <div class="absolute inset-0 bg-cover bg-center transform scale-100" 
+                     style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df0a896f-0cb2-46b9-92ee-12643b30c549_800w.jpg');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <div class="absolute bottom-12 left-8 md:left-16 text-white">
+                    <span class="text-[#d6b796] text-sm font-semibold uppercase tracking-wider mb-2 block font-work">Script Restaurant</span>
+                    <h3 class="font-serif text-2xl md:text-4xl font-semibold">Panoramic views, exceptional dining</h3>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <div class="absolute inset-0 bg-cover bg-center transform scale-100" 
+                     style="background-image: url('https://www.thehertsmere.co.uk/wp-content/uploads/2021/07/hole-11-IMG_7346-copy--2300x1300.jpg');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <div class="absolute bottom-12 left-8 md:left-16 text-white">
+                    <span class="text-[#d6b796] text-sm font-semibold uppercase tracking-wider mb-2 block font-work">Donald Steel Design</span>
+                    <h3 class="font-serif text-2xl md:text-4xl font-semibold">A course that rewards every level</h3>
+                </div>
+            </div>
+            
+            <!-- Slide 5 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <div class="absolute inset-0 bg-cover bg-center transform scale-100" 
+                     style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+                <div class="absolute bottom-12 left-8 md:left-16 text-white">
+                    <span class="text-[#d6b796] text-sm font-semibold uppercase tracking-wider mb-2 block font-work">Expert Coaching</span>
+                    <h3 class="font-serif text-2xl md:text-4xl font-semibold">PGA professionals for every golfer</h3>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="carousel-prev absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white opacity-0 hover:opacity-100 hover:bg-white/20 transition-all duration-300 z-10">
+            <iconify-icon icon="solar:arrow-left-linear" width="24" height="24"></iconify-icon>
+        </button>
+        <button class="carousel-next absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white opacity-0 hover:opacity-100 hover:bg-white/20 transition-all duration-300 z-10">
+            <iconify-icon icon="solar:arrow-right-linear" width="24" height="24"></iconify-icon>
+        </button>
+        
+        <!-- Progress Dots -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-10">
+            <button class="carousel-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300" data-index="0"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300" data-index="1"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300" data-index="2"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300" data-index="3"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300" data-index="4"></button>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-white/10">
+            <div class="carousel-progress h-full bg-[#d6b796] transition-all duration-100" style="width: 0%"></div>
         </div>
     </section>
 
@@ -1930,6 +1954,105 @@ animation-play-state: paused;
 
         // Initialize scroll progress
         initScrollProgress();
+
+        /* -------------------------------------------------------------------------- */
+        /*                       Immersive Carousel Functionality                     */
+        /* -------------------------------------------------------------------------- */
+        const carouselSlides = document.querySelectorAll('.carousel-slide');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const carouselProgress = document.querySelector('.carousel-progress');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+
+        let currentSlide = 0;
+        let slideInterval;
+        const slideDuration = 6000; // 6 seconds per slide
+
+        function goToSlide(index) {
+            // Remove active from all
+            carouselSlides.forEach(slide => {
+                slide.dataset.active = 'false';
+            });
+            carouselDots.forEach(dot => dot.classList.remove('active'));
+            
+            // Set new active
+            currentSlide = index;
+            if (currentSlide >= carouselSlides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = carouselSlides.length - 1;
+            
+            carouselSlides[currentSlide].dataset.active = 'true';
+            carouselDots[currentSlide].classList.add('active');
+            
+            // Reset progress
+            resetProgress();
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function resetProgress() {
+            if (carouselProgress) {
+                carouselProgress.style.transition = 'none';
+                carouselProgress.style.width = '0%';
+                setTimeout(() => {
+                    carouselProgress.style.transition = `width ${slideDuration}ms linear`;
+                    carouselProgress.style.width = '100%';
+                }, 50);
+            }
+        }
+
+        function startAutoplay() {
+            slideInterval = setInterval(nextSlide, slideDuration);
+            resetProgress();
+        }
+
+        function stopAutoplay() {
+            clearInterval(slideInterval);
+        }
+
+        // Event listeners
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoplay();
+                prevSlide();
+                startAutoplay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                stopAutoplay();
+                nextSlide();
+                startAutoplay();
+            });
+        }
+
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopAutoplay();
+                goToSlide(index);
+                startAutoplay();
+            });
+        });
+
+        // Pause on hover
+        const carouselSection = document.querySelector('.carousel-container')?.parentElement;
+        if (carouselSection) {
+            carouselSection.addEventListener('mouseenter', stopAutoplay);
+            carouselSection.addEventListener('mouseleave', startAutoplay);
+        }
+
+        // Initialize carousel
+        if (carouselSlides.length > 0) {
+            goToSlide(0);
+            startAutoplay();
+        }
+
 
     </script>
 
