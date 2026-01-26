@@ -2,6 +2,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Hertsmere - Membership Open Day</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'serif': ['Zilla Slab', 'Georgia', 'serif'],
+          'sans': ['Work Sans', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -20,10 +32,17 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .font-serif, .font-zilla {
-    font-family: 'Zilla Slab', Georgia, serif;
+    font-family: 'Zilla Slab', Georgia, serif !important;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.01em;
+}
+
+/* Force Zilla Slab on all screen sizes */
+@media (max-width: 768px) {
+    h1, h2, h3, h4, h5, h6, .font-serif, .font-zilla {
+        font-family: 'Zilla Slab', Georgia, serif !important;
+    }
 }
 
 p, span, li, a, label, .font-work {
