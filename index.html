@@ -455,38 +455,6 @@ animation-play-state: paused;
 .cta-shimmer:hover {
     animation: btnShimmer 1s infinite;
 }
-
-/* Ticker styles */
-.ticker-wrapper {
-    width: 100%;
-    overflow: hidden;
-}
-.ticker-content {
-    display: flex;
-    animation: ticker-scroll 15s linear infinite;
-    will-change: transform;
-}
-.ticker-item {
-    color: white;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    white-space: nowrap;
-    padding: 0 3rem;
-}
-@keyframes ticker-scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-@media (max-width: 768px) {
-    .ticker-content {
-        animation: ticker-scroll 3s linear infinite;
-    }
-}
 </style></head>
 <body class="bg-[#fcfaf7] text-[#2d3d4d] antialiased">
 
@@ -557,26 +525,6 @@ animation-play-state: paused;
             </p>
         </div>
     </section>
-
-    <!-- Date Ticker -->
-    <div class="bg-[#00a1a2] py-2 overflow-hidden border-t border-b border-[#008f90]">
-        <div class="ticker-wrapper">
-            <div class="ticker-content">
-                <span class="ticker-item">Free entry • Free coaching • Free food</span>
-                <span class="ticker-item">Golden Ball Competition — win 1,000 free range balls</span>
-                <span class="ticker-item">Sunday 8th February • 10am – 2pm</span>
-                <span class="ticker-item">No booking required — just turn up</span>
-                <span class="ticker-item">Free entry • Free coaching • Free food</span>
-                <span class="ticker-item">Golden Ball Competition — win 1,000 free range balls</span>
-                <span class="ticker-item">Sunday 8th February • 10am – 2pm</span>
-                <span class="ticker-item">No booking required — just turn up</span>
-                <span class="ticker-item">Free entry • Free coaching • Free food</span>
-                <span class="ticker-item">Golden Ball Competition — win 1,000 free range balls</span>
-                <span class="ticker-item">Sunday 8th February • 10am – 2pm</span>
-                <span class="ticker-item">No booking required — just turn up</span>
-            </div>
-        </div>
-    </div>
 
     <!-- SECTION: Something for Everyone -->
     <section id="something-for-everyone" class="py-20 px-6 bg-white">
