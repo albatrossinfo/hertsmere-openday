@@ -455,6 +455,33 @@ animation-play-state: paused;
 .cta-shimmer:hover {
     animation: btnShimmer 1s infinite;
 }
+
+/* Ticker styles */
+.ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+.ticker-content {
+    display: flex;
+    animation: ticker-scroll 30s linear infinite;
+    will-change: transform;
+}
+.ticker-item {
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 0 3rem;
+}
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
 </style></head>
 <body class="bg-[#fcfaf7] text-[#2d3d4d] antialiased">
 
@@ -475,12 +502,12 @@ animation-play-state: paused;
 
         <div class="relative z-20 flex-1 flex flex-col items-center justify-center px-6 text-center w-full max-w-[90rem] mx-auto -mt-16">
             <h1 class="text-white font-serif leading-[1.1] animate-fade-in-up delay-100 tracking-tight drop-shadow-xl font-bold" style="font-size: clamp(2.5rem, 5vw, 4rem);">
-                Your perfect Sunday <span class="block italic text-[#d6b796] mt-2 font-serif">starts here.</span>
+                You're invited to <span class="block italic text-[#d6b796] mt-2 font-serif">The Hertsmere</span>
             </h1>
             <p class="leading-relaxed animate-fade-in-up delay-200 font-normal text-gray-200/90 mt-6 mb-10 max-w-[600px] mx-auto drop-shadow-md font-work" style="font-size: clamp(1rem, 1.5vw, 1.25rem);">
-                Join us for a free Membership Open Day. Experience complimentary coaching, course tours, and Toptracer competitions.
+                Free entry. Free coaching. Free food. Come see what we're all about.
             </p>
-            <button onclick="document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="relative overflow-hidden bg-[#00a1a2] text-white px-8 py-4 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300 shadow-[0_0_40px_-10px_rgba(0,161,162,0.4)] hover:shadow-[0_0_60px_-15px_rgba(214,183,150,0.6)] hover:bg-[#008f90] rounded-sm flex items-center gap-3 group animate-fade-in-up delay-300 cta-shimmer font-work">
+            <button onclick="fbq('track', 'Lead'); gtag('event', 'generate_lead', {event_category: 'engagement', event_label: 'cta_click'}); document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="relative z-20 overflow-hidden bg-[#00a1a2] text-white px-8 py-4 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300 shadow-[0_0_40px_-10px_rgba(0,161,162,0.4)] hover:shadow-[0_0_60px_-15px_rgba(214,183,150,0.6)] hover:bg-[#008f90] rounded-sm flex items-center gap-3 group animate-fade-in-up delay-300 font-work">
                 <span class="relative z-10">Book Your Place</span>
                 <iconify-icon icon="solar:arrow-right-linear" width="16" height="16" class="group-hover:translate-x-1.5 transition-transform duration-300 relative z-10"></iconify-icon>
             </button>
@@ -503,12 +530,112 @@ animation-play-state: paused;
                     </div>
                     <div class="flex items-center justify-center md:justify-start gap-3">
                         <iconify-icon icon="solar:star-fall-linear" width="18" height="18" class="text-[#d6b796]"></iconify-icon>
-                        <span class="text-white">£150 bonus points</span>
+                        <span class="text-white">Bring the Family</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- SECTION: What is an Open Day? -->
+    <section id="what-is-open-day" class="py-20 px-6 bg-[#F5F5F3]">
+        <div class="max-w-[700px] mx-auto text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-semibold text-[#2d3d4d] mb-6">What's an Open Day?</h2>
+            <div class="w-16 h-0.5 bg-[#d6b796] mx-auto mb-8"></div>
+
+            <p class="text-[#2d3d4d]/80 text-lg leading-relaxed mb-6">
+                Think of it as an open house for the club. No golf experience needed. No obligation to join. Just come and explore.
+            </p>
+
+            <p class="text-[#2d3d4d]/80 text-lg leading-relaxed">
+                Walk the course. Try the Toptracer. Grab a coffee. Chat to the team. See if it feels like your kind of place.
+            </p>
+        </div>
+    </section>
+
+    <!-- Date Ticker -->
+    <div class="bg-[#00a1a2] py-4 overflow-hidden">
+        <div class="ticker-wrapper">
+            <div class="ticker-content">
+                <span class="ticker-item">Sunday 2nd February • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 2nd March • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 6th April • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 4th May • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 1st June • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 6th July • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 2nd February • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 2nd March • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 6th April • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 4th May • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 1st June • 10am - 2pm</span>
+                <span class="ticker-item">Sunday 6th July • 10am - 2pm</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION: Something for Everyone -->
+    <section id="something-for-everyone" class="py-20 px-6 bg-white">
+        <div class="max-w-[1100px] mx-auto">
+
+            <!-- Header -->
+            <div class="text-center mb-14">
+                <h2 class="font-serif text-3xl md:text-4xl font-semibold text-[#2d3d4d] mb-4">Something for everyone</h2>
+                <div class="w-16 h-0.5 bg-[#d6b796] mx-auto mb-6"></div>
+                <p class="text-[#2d3d4d]/70 text-lg max-w-[600px] mx-auto">
+                    Whether you're a golfer, a foodie, or just curious — there's a reason to visit.
+                </p>
+            </div>
+
+            <!-- 4 Audience Tiles -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Tile 1: Golfers -->
+                <div class="bg-[#F5F5F3] rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-[#d6b796]/30">
+                    <div class="w-14 h-14 bg-[#00a1a2]/10 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <iconify-icon icon="solar:golf-bold" class="text-[#00a1a2]" width="28" height="28"></iconify-icon>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-[#2d3d4d] mb-3">Golfers</h3>
+                    <p class="text-[#2d3d4d]/70 text-sm leading-relaxed">
+                        Tour the Donald Steel course. Chat handicaps with the pros. Try before you commit.
+                    </p>
+                </div>
+
+                <!-- Tile 2: Families -->
+                <div class="bg-[#F5F5F3] rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-[#d6b796]/30">
+                    <div class="w-14 h-14 bg-[#00a1a2]/10 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <iconify-icon icon="solar:users-group-rounded-bold" class="text-[#00a1a2]" width="28" height="28"></iconify-icon>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-[#2d3d4d] mb-3">Families</h3>
+                    <p class="text-[#2d3d4d]/70 text-sm leading-relaxed">
+                        Toptracer games the kids will love. Free coaching for all ages. Make it a day out.
+                    </p>
+                </div>
+
+                <!-- Tile 3: Foodies -->
+                <div class="bg-[#F5F5F3] rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-[#d6b796]/30">
+                    <div class="w-14 h-14 bg-[#00a1a2]/10 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <iconify-icon icon="solar:chef-hat-bold" class="text-[#00a1a2]" width="28" height="28"></iconify-icon>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-[#2d3d4d] mb-3">Foodies</h3>
+                    <p class="text-[#2d3d4d]/70 text-sm leading-relaxed">
+                        Script Restaurant is open all day. Coffee, bacon baps, and Sunday lunch with a view.
+                    </p>
+                </div>
+
+                <!-- Tile 4: Curious Locals -->
+                <div class="bg-[#F5F5F3] rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-[#d6b796]/30">
+                    <div class="w-14 h-14 bg-[#00a1a2]/10 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <iconify-icon icon="solar:map-point-bold" class="text-[#00a1a2]" width="28" height="28"></iconify-icon>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-[#2d3d4d] mb-3">Curious Locals</h3>
+                    <p class="text-[#2d3d4d]/70 text-sm leading-relaxed">
+                        Never been? Just come and look around. No pressure, no pitch. See what's on your doorstep.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Section 2: Value Proposition -->
     <section class="md:py-32 bg-[#FAFAFA] pt-24 pb-24">
@@ -576,418 +703,26 @@ animation-play-state: paused;
         </div>
     </section>
 
-    <!-- Section 3: Video Tour -->
-    <section class="bg-[#2d3d4d] py-24 relative overflow-hidden">
-        <div class="max-w-[1000px] mx-auto px-6 flex flex-col items-center text-center">
-            <h2 class="text-white font-serif font-bold tracking-tight mb-4" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
-                See it for yourself
-            </h2>
-            <div class="gold-separator"></div>
-            <p class="text-white/70 text-lg md:text-xl font-work font-medium mb-10">
-                Take a tour of the course, range, and clubhouse
-            </p>
-            <div onclick="openVideoModal()" class="w-full max-w-[900px] aspect-video rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.3)] bg-black relative group cursor-pointer transition-transform duration-500 hover:shadow-[0_15px_40px_rgba(214,183,150,0.15)] border border-white/10 hover:border-[#d6b796]/50">
-                <img src="https://www.thehertsmere.co.uk/wp-content/themes/awsite/build/static/img/video-posters/home.jpg" alt="The Hertsmere Tour" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/20 transition-colors duration-300"></div>
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div class="w-[80px] h-[80px] rounded-full border-[2px] border-white/40 flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-[#d6b796]/90 group-hover:border-[#d6b796] group-hover:scale-105 pl-1">
-                        <iconify-icon icon="solar:play-bold" class="text-white text-3xl"></iconify-icon>
-                    </div>
-                </div>
-            </div>
-            <p class="text-white/50 text-xs md:text-sm mt-6 font-work font-normal tracking-wide">2 minute tour</p>
-        </div>
-    </section>
-
-    <!-- Section 5: How Membership Works -->
-    <section id="how-it-works" class="bg-[#2d3d4d] py-20 relative overflow-hidden">
-        <div class="max-w-[1000px] mx-auto px-6 relative z-10">
-            <!-- Header -->
-            <div class="text-center mb-14 scroll-reveal reveal-hidden">
-                <h2 class="font-serif font-semibold text-white tracking-tight mb-4" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">Simple, flexible, fair</h2>
-                <div class="gold-separator"></div>
-                <div class="max-w-[700px] mx-auto space-y-4 text-white/85 font-work font-normal text-[1.1rem] leading-[1.7] delay-100 animate-fade-in-up">
-                    <p>Most clubs lock you in. Pay up front. Use it or lose it. We do things differently.</p>
-                    <p>Our points based system gives you complete control. Choose your tier, receive your points, use them whenever suits you. Off peak rounds cost fewer points, so you can play more when the course is quieter. Unused points roll over. No penalties. No wasted money.</p>
-                </div>
-            </div>
-
-            <!-- Steps Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <!-- Connector Line (Desktop Only) -->
-                <div class="hidden md:block absolute top-[60px] left-0 w-full h-[2px] z-0 dashed-line scroll-reveal reveal-hidden delay-400"></div>
-
-                <!-- Step 1 -->
-                <div class="group step-card relative z-10 bg-white/5 border border-white/10 rounded-2xl p-10 text-center transition-all duration-300 scroll-reveal reveal-hidden stagger-1 flex flex-col items-center">
-                    <div class="step-number-container w-[100px] h-[100px] rounded-full border border-white/10 flex items-center justify-center bg-[#2d3d4d] relative z-20 transition-all duration-300">
-                         <span class="font-serif font-bold text-[#00a1a2] text-[3.5rem] group-hover:text-[#d6b796] transition-colors">1</span>
-                    </div>
-                    <h3 class="font-serif font-semibold text-white text-[1.25rem] mt-6 mb-3">Choose Your Tier</h3>
-                    <p class="font-work text-white/70 text-[1rem] leading-[1.6]">Flexi 1, 2, or 3 based on how often you play</p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="group step-card relative z-10 bg-white/5 border border-white/10 rounded-2xl p-10 text-center transition-all duration-300 scroll-reveal reveal-hidden stagger-2 flex flex-col items-center">
-                    <div class="step-number-container w-[100px] h-[100px] rounded-full border border-white/10 flex items-center justify-center bg-[#2d3d4d] relative z-20 transition-all duration-300">
-                         <span class="font-serif font-bold text-[#00a1a2] text-[3.5rem] group-hover:text-[#d6b796] transition-colors">2</span>
-                    </div>
-                    <h3 class="font-serif font-semibold text-white text-[1.25rem] mt-6 mb-3">Receive Your Points</h3>
-                    <p class="font-work text-white/70 text-[1rem] leading-[1.6]">Your membership converts into points you control</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="group step-card relative z-10 bg-white/5 border border-white/10 rounded-2xl p-10 text-center transition-all duration-300 scroll-reveal reveal-hidden stagger-3 flex flex-col items-center">
-                    <div class="step-number-container w-[100px] h-[100px] rounded-full border border-white/10 flex items-center justify-center bg-[#2d3d4d] relative z-20 transition-all duration-300">
-                         <span class="font-serif font-bold text-[#00a1a2] text-[3.5rem] group-hover:text-[#d6b796] transition-colors">3</span>
-                    </div>
-                    <h3 class="font-serif font-semibold text-white text-[1.25rem] mt-6 mb-3">Play When You Want</h3>
-                    <p class="font-work text-white/70 text-[1rem] leading-[1.6]">Book rounds that fit your schedule. Off peak costs less. Points roll over.</p>
-                </div>
-            </div>
-
-            <!-- Key Benefits Strip -->
-            <div class="mt-14 flex justify-center scroll-reveal reveal-hidden stagger-4">
-                <div class="bg-white/5 rounded-[50px] px-8 py-5 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 border border-white/5 hover:border-[#d6b796]/30 transition-colors duration-300">
-                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
-                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
-                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">No long term contract</span>
-                    </div>
-                    <div class="hidden md:block w-px h-4 bg-white/15"></div>
-                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
-                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
-                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Points roll over</span>
-                    </div>
-                    <div class="hidden md:block w-px h-4 bg-white/15"></div>
-                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
-                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
-                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Transparent pricing</span>
-                    </div>
-                    <div class="hidden md:block w-px h-4 bg-white/15"></div>
-                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
-                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
-                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Monthly payment options</span>
-                    </div>
-                     <div class="hidden md:block w-px h-4 bg-white/15"></div>
-                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
-                        <iconify-icon icon="solar:star-fall-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
-                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Join on the day bonus</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Dual Audience Appeal -->
-    <section id="membership" class="py-20 bg-white px-6 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto relative z-10">
-            
-            <!-- Centered Header -->
-            <div class="text-center mb-12 scroll-reveal reveal-hidden">
-                <h2 class="font-serif font-semibold text-[#2d3d4d] mb-4 tracking-tight" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">Membership for every golfer</h2>
-                <div class="gold-separator"></div>
-                <p class="font-work font-normal text-[#666666] text-[1.1rem] max-w-[600px] mx-auto leading-relaxed">
-                    Whether you're serious about improvement or looking for weekend fun with family, you belong here.
-                </p>
-            </div>
-
-            <!-- Two Column Layout -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 relative">
-                
-                <!-- Desktop Animated Gradient Divider -->
-                <div class="absolute left-1/2 top-1/2 -translate-y-1/2 w-[2px] h-[60%] -ml-[1px] hidden lg:block overflow-hidden z-0">
-                    <div class="w-full h-full gradient-line"></div>
-                </div>
-
-                <!-- LEFT COLUMN: Serious Golfers -->
-                <div class="tilt-card card-hover-state bg-gray-50/50 border border-[#e5e5e5] rounded-xl p-10 relative overflow-hidden flex flex-col group h-full scroll-reveal reveal-hidden stagger-1 z-10">
-                    <div class="mb-6">
-                        <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.35rem] mb-6">Serious about your game?</h3>
-                        
-                        <!-- Benefits List -->
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-2">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Excellent course standards year round</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-3">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">World Handicap System and competitions</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-4">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Toptracer range for structured practice</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-5">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Professional PGA coaching available</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-6">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">14 day advance booking priority</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-6">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Flexible schedule that fits around work</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="mt-auto">
-                        <!-- Testimonial Box -->
-                        <div class="bg-white border border-gray-100 shadow-sm p-6 rounded-lg mb-8 hover:shadow-md transition-all duration-250 scroll-reveal reveal-hidden stagger-6">
-                            <p class="text-[0.95rem] italic text-[#151e26]/70 leading-relaxed mb-3 font-work">"The course is always in great condition, the Toptracer range gives me serious practice tools, and I'm not locked into anything. Exactly what I was looking for."</p>
-                            <p class="text-xs font-semibold uppercase tracking-wide text-[#151e26] font-work">David, Stanmore</p>
-                        </div>
-                        
-                        <!-- Recommended Badge -->
-                        <div class="inline-block px-3 py-1.5 rounded-md bg-gray-100 text-[#888] text-xs font-medium transition-colors duration-250 group-hover:bg-[#00a1a2] group-hover:text-white font-work">
-                            Recommended: Flexi 2 or Flexi 3
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT COLUMN: Family/Casual -->
-                <div class="tilt-card card-hover-state bg-gray-50/50 border border-[#e5e5e5] rounded-xl p-10 relative overflow-hidden flex flex-col group h-full scroll-reveal reveal-hidden stagger-2 z-10">
-                    <div class="mb-6">
-                        <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.35rem] mb-6">Looking for golf that fits your life?</h3>
-                        
-                        <!-- Benefits List -->
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-2">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Beginner friendly, zero judgment</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-3">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Pay for what you actually play</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-4">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Script restaurant makes it a proper day out</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-5">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Junior coaching and programmes</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-6">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Social calendar and member events</span>
-                            </li>
-                            <li class="flex items-start gap-4 group/item check-item scroll-reveal reveal-hidden stagger-6">
-                                <div class="w-6 h-6 flex-shrink-0 flex items-center justify-center check-icon mt-0.5">
-                                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2]" width="24" height="24"></iconify-icon>
-                                </div>
-                                <span class="text-base text-[#151e26]/70 font-work">Welcoming community who remember being new</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="mt-auto">
-                        <!-- Testimonial Box -->
-                        <div class="bg-white border border-gray-100 shadow-sm p-6 rounded-lg mb-8 hover:shadow-md transition-all duration-250 scroll-reveal reveal-hidden stagger-6">
-                            <p class="text-[0.95rem] italic text-[#151e26]/70 leading-relaxed mb-3 font-work">"My family wanted to try golf together. Hertsmere made it easy. No pressure, friendly faces everywhere, and the kids love the Toptracer games."</p>
-                            <p class="text-xs font-semibold uppercase tracking-wide text-[#151e26] font-work">Rachel, Mill Hill</p>
-                        </div>
-                        
-                        <!-- Recommended Badge -->
-                        <div class="inline-block px-3 py-1.5 rounded-md bg-gray-100 text-[#888] text-xs font-medium transition-colors duration-250 group-hover:bg-[#00a1a2] group-hover:text-white font-work">
-                            Recommended: Flexi 1 or Flexi 2
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 6: Membership Tiers / Pricing -->
-    <section class="bg-[#F5F5F3] py-20 px-6 relative" id="pricing">
-        <!-- Header -->
-        <div class="max-w-4xl mx-auto text-center mb-12 scroll-reveal reveal-hidden">
-            <h2 class="font-serif font-semibold text-[#2d3d4d] mb-4 tracking-tight leading-none" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">Choose your membership</h2>
-            <div class="gold-separator"></div>
-            <p class="font-work font-normal text-[#666] text-[1.1rem]">Three flexible tiers. One perfect fit for how you actually play.</p>
-        </div>
-
-        <!-- Open Day Offer Banner -->
-        <div class="max-w-[700px] mx-auto bg-[#00a1a2] rounded-xl p-5 mb-14 flex flex-col sm:flex-row items-center justify-center gap-3 shadow-lg shadow-[#00a1a2]/20 banner-pulse scroll-reveal reveal-hidden delay-100 group hover:scale-[1.01] transition-transform duration-300">
-            <iconify-icon icon="solar:star-fall-bold" class="text-[#d6b796] text-2xl mb-1 sm:mb-0"></iconify-icon>
-            <p class="font-work font-semibold text-white text-base text-center">Join on Open Day and receive up to £150 in bonus points</p>
-        </div>
-
-        <!-- Pricing Cards -->
-        <div class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            
-            <!-- Flexi 1 -->
-            <div class="bg-white border border-[#e0e0e0] rounded-2xl p-8 lg:p-10 text-center card-hover-state scroll-reveal reveal-hidden stagger-1 flex flex-col h-full relative z-0">
-                <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.5rem] mb-2">Flexi 1</h3>
-                <div class="flex items-baseline justify-center gap-1 mb-4">
-                    <span class="font-serif font-bold text-[#2d3d4d] text-[3rem]">£250</span>
-                    <span class="font-work text-[#888] text-base">/year</span>
-                </div>
-                <p class="font-work font-medium text-[#00a1a2] text-base mb-4">100 points</p>
-                <p class="font-work text-[#666] text-[0.9rem] mb-6">Approximately 7 to 10 rounds per year</p>
-                
-                <div class="bg-[#F9F9F9] rounded-lg p-3 mb-6">
-                    <span class="block text-[#555] text-[0.8rem] font-semibold uppercase tracking-wide mb-1 font-work">Best For:</span>
-                    <span class="text-[#555] text-[0.9rem] leading-tight block font-work">Occasional golfers, first time members, budget conscious players</span>
-                </div>
-
-                <div class="border-t border-[#eee] w-full my-2"></div>
-
-                <div class="mt-6 pricing-bonus-box border border-dashed border-[#00a1a2] rounded-lg p-4 group-hover:border-solid transition-all duration-300">
-                    <p class="font-work font-semibold text-[#00a1a2] text-[0.95rem]">Open Day Bonus</p>
-                    <p class="font-work font-bold text-[#00a1a2] text-lg">£50 in bonus points</p>
-                </div>
-
-                <button onclick="document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="w-full mt-6 bg-transparent border-2 border-[#2d3d4d] text-[#2d3d4d] rounded-lg py-3.5 px-6 font-semibold text-sm uppercase tracking-wider hover:bg-[#2d3d4d] hover:text-white transition-colors duration-250 font-work">
-                    Book Your Free Place
-                </button>
-            </div>
-
-            <!-- Flexi 2 (Most Popular) -->
-            <div class="bg-white border-2 border-[#00a1a2] rounded-2xl p-8 lg:p-12 text-center relative shadow-[0_20px_50px_rgba(0,161,162,0.15)] transform md:scale-105 md:-translate-y-2 z-10 order-first md:order-none mb-8 md:mb-0 scroll-reveal reveal-hidden stagger-2 flex flex-col h-full transition-all duration-300 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,161,162,0.25)]">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#00a1a2] text-white px-6 py-1.5 rounded-full text-[0.8rem] font-work font-semibold tracking-wide shadow-md whitespace-nowrap">
-                    Most Popular
-                </div>
-                
-                <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.5rem] mb-2">Flexi 2</h3>
-                <div class="flex items-baseline justify-center gap-1 mb-4">
-                    <span class="font-serif font-bold text-[#00a1a2] text-[3rem]">£460</span>
-                    <span class="font-work text-[#888] text-base">/year</span>
-                </div>
-                <p class="font-work font-medium text-[#2d3d4d] text-base mb-4">200 points</p>
-                <p class="font-work text-[#666] text-[0.9rem] mb-6">Approximately 15 to 20 rounds per year</p>
-                
-                <div class="bg-[#F0FAF9] rounded-lg p-3 mb-6">
-                    <span class="block text-[#00a1a2] text-[0.8rem] font-semibold uppercase tracking-wide mb-1 font-work">Best For:</span>
-                    <span class="text-[#2d3d4d]/80 text-[0.9rem] leading-tight block font-work">Regular golfers, two to three times per month, best overall value</span>
-                </div>
-
-                <div class="border-t border-[#eee] w-full my-2"></div>
-
-                <div class="mt-6 pricing-bonus-box border border-dashed border-[#00a1a2] rounded-lg p-4 group-hover:border-solid transition-all duration-300">
-                    <p class="font-work font-semibold text-[#00a1a2] text-[0.95rem]">Open Day Bonus</p>
-                    <p class="font-work font-bold text-[#00a1a2] text-lg">£100 in bonus points</p>
-                </div>
-
-                <button onclick="document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="w-full mt-6 bg-[#00a1a2] border-2 border-[#00a1a2] text-white rounded-lg py-3.5 px-6 font-semibold text-sm uppercase tracking-wider hover:bg-[#008f90] hover:border-[#008f90] transition-colors duration-250 shadow-lg shadow-[#00a1a2]/20 font-work cta-shimmer">
-                    Book Your Free Place
-                </button>
-            </div>
-
-            <!-- Flexi 3 -->
-            <div class="bg-white border border-[#e0e0e0] rounded-2xl p-8 lg:p-10 text-center card-hover-state scroll-reveal reveal-hidden stagger-3 flex flex-col h-full relative z-0">
-                <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.5rem] mb-2">Flexi 3</h3>
-                <div class="flex items-baseline justify-center gap-1 mb-4">
-                    <span class="font-serif font-bold text-[#2d3d4d] text-[3rem]">£790</span>
-                    <span class="font-work text-[#888] text-base">/year</span>
-                </div>
-                <p class="font-work font-medium text-[#00a1a2] text-base mb-4">360 points</p>
-                <p class="font-work text-[#666] text-[0.9rem] mb-6">Approximately 30 to 45 rounds per year</p>
-                
-                <div class="bg-[#F9F9F9] rounded-lg p-3 mb-6">
-                    <span class="block text-[#555] text-[0.8rem] font-semibold uppercase tracking-wide mb-1 font-work">Best For:</span>
-                    <span class="text-[#555] text-[0.9rem] leading-tight block font-work">Dedicated golfers, weekly play or more, focused on competition</span>
-                </div>
-
-                <div class="border-t border-[#eee] w-full my-2"></div>
-
-                <div class="mt-6 pricing-bonus-box border border-dashed border-[#00a1a2] rounded-lg p-4 group-hover:border-solid transition-all duration-300">
-                    <p class="font-work font-semibold text-[#00a1a2] text-[0.95rem]">Open Day Bonus</p>
-                    <p class="font-work font-bold text-[#00a1a2] text-lg">£150 in bonus points</p>
-                </div>
-
-                <button onclick="document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="w-full mt-6 bg-transparent border-2 border-[#2d3d4d] text-[#2d3d4d] rounded-lg py-3.5 px-6 font-semibold text-sm uppercase tracking-wider hover:bg-[#2d3d4d] hover:text-white transition-colors duration-250 font-work">
-                    Book Your Free Place
-                </button>
-            </div>
-        </div>
-
-        <!-- All Tiers Include Footer -->
-        <div class="max-w-[900px] mx-auto mt-16 scroll-reveal reveal-hidden stagger-4">
-            <h4 class="text-center font-serif font-semibold text-[#2d3d4d] mb-8 text-lg">All tiers include:</h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 mb-10">
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">10% off Toptracer range</span>
-                </div>
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">10% off buggy hire</span>
-                </div>
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">10% off Script Restaurant</span>
-                </div>
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">14 day advance booking</span>
-                </div>
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">England Golf membership</span>
-                </div>
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">World Handicap System</span>
-                </div>
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">Guest privileges</span>
-                </div>
-                <div class="flex items-center gap-3 justify-center md:justify-start">
-                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
-                    <span class="font-work text-[#555] text-[0.95rem]">Year round access</span>
-                </div>
-            </div>
-            <p class="text-center font-work text-[#888] text-[0.8rem] leading-relaxed max-w-[700px] mx-auto">
-                England Golf membership fee of £23.75 applies (reduced if this is your second club). All bonus points valued at £2.50 per point.
-            </p>
-        </div>
-    </section>
-
     <!-- Section 7: What Happens at Your Open Day -->
     <section class="bg-[#F9F9F7] py-24 relative overflow-hidden w-full">
         <!-- Noise Overlay -->
         <div class="absolute inset-0 bg-grain pointer-events-none z-0 mix-blend-multiply opacity-[0.03]"></div>
-        
+
         <div class="max-w-[1280px] mx-auto px-6 relative z-10">
             <!-- Header -->
             <div class="text-center mb-14 scroll-reveal reveal-hidden">
                 <h2 class="font-serif font-semibold text-[#2d3d4d] tracking-[0.02em] mb-4 leading-tight" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">
-                    What happens at your Open Day
+                    What's happening on the day
                 </h2>
                 <div class="gold-separator"></div>
                 <p class="font-work font-normal text-[#666] text-[1.1rem] max-w-[550px] mx-auto">
-                    Four hours of golf, food, and fun. Drop in anytime between 10am and 2pm.
+                    Every part of the club is on show. Drop in anytime between 10am and 2pm.
                 </p>
             </div>
 
             <!-- Activity Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+
                 <!-- Card 1: Coaching -->
                 <div class="tilt-card-3d glass-card rounded-2xl overflow-hidden flex flex-col h-full scroll-reveal card-reveal stagger-1 cursor-default group">
                     <div class="relative w-full aspect-[4/3] overflow-hidden">
@@ -1047,6 +782,35 @@ animation-play-state: paused;
                         <p class="font-work text-[#666] text-[0.9rem] leading-[1.5]">All abilities welcome. See if you can top the leaderboard.</p>
                     </div>
                 </div>
+
+                <!-- Card 5: Script Restaurant -->
+                <div class="tilt-card-3d glass-card rounded-2xl overflow-hidden flex flex-col h-full scroll-reveal card-reveal stagger-5 cursor-default group">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/df0a896f-0cb2-46b9-92ee-12643b30c549_800w.jpg" alt="Script Restaurant" class="w-full h-full object-cover ken-burns-reveal card-img transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute top-0 right-0 bg-[#00a1a2] text-white font-work font-semibold text-xs px-3 py-1.5 rounded-bl-lg time-badge z-20">
+                            10am – 2pm
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.1rem] mb-2 card-title transition-colors duration-200">Script Restaurant</h3>
+                        <p class="font-work text-[#666] text-[0.9rem] leading-[1.5]">Free coffee and bacon baps for all visitors. Sunday lunch menu available — book a table while you're here.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6: Membership Q&A -->
+                <div class="tilt-card-3d glass-card rounded-2xl overflow-hidden flex flex-col h-full scroll-reveal card-reveal stagger-6 cursor-default group">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#2d3d4d] to-[#1a252f] flex items-center justify-center">
+                        <iconify-icon icon="solar:chat-round-dots-bold" class="text-[#00a1a2]" width="64" height="64"></iconify-icon>
+                        <div class="absolute top-0 right-0 bg-white/20 backdrop-blur-sm text-white font-work font-semibold text-xs px-3 py-1.5 rounded-bl-lg time-badge z-20">
+                            Drop in anytime
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.1rem] mb-2 card-title transition-colors duration-200">Membership Q&A</h3>
+                        <p class="font-work text-[#666] text-[0.9rem] leading-[1.5]">Got questions about joining? Chat to the team. No pressure, no hard sell — just honest answers.</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Refreshments Strip -->
@@ -1068,7 +832,7 @@ animation-play-state: paused;
                 <div class="inline-flex items-center justify-center gap-2">
                     <iconify-icon icon="solar:calendar-add-linear" class="text-[#00a1a2]" width="18" height="18"></iconify-icon>
                     <span class="font-work text-[#666] text-[0.95rem]">
-                        Interested in membership? Book an appointment slot when you 
+                        Interested in membership? Book an appointment slot when you
                         <a href="#book-now" onclick="document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="text-[#00a1a2] hover:underline decoration-[#00a1a2]/40 underline-offset-4 transition-all">Book your free place</a>
                     </span>
                 </div>
@@ -1076,67 +840,26 @@ animation-play-state: paused;
         </div>
     </section>
 
-    <!-- SECTION 8: Book Your Free Place -->
-    <section id="book-now" class="relative bg-[#2d3d4d] py-24 px-6 overflow-hidden">
-        <!-- Background Grain Overlay -->
-        <div class="absolute inset-0 bg-grain pointer-events-none z-0 opacity-[0.03]"></div>
-        
-        <div class="max-w-[1100px] mx-auto relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-start">
-                
-                <!-- Left Content -->
-                <div class="flex flex-col h-full justify-center">
-                    <div class="scroll-reveal reveal-hidden">
-                        <h2 class="font-serif font-semibold text-white tracking-[0.02em] mb-6 leading-tight" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">
-                            Book your free place
-                        </h2>
-                        <div class="gold-separator ml-0"></div>
-                        <p class="font-work font-normal text-white/85 text-[1.15rem] leading-[1.6] mb-8">
-                            Sunday 8th February, 10am to 2pm. Drop in anytime. Stay as long as you like.
-                        </p>
+    <!-- Section 3: Video Tour -->
+    <section class="bg-[#2d3d4d] py-24 relative overflow-hidden">
+        <div class="max-w-[1000px] mx-auto px-6 flex flex-col items-center text-center">
+            <h2 class="text-white font-serif font-bold tracking-tight mb-4" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">
+                See it for yourself
+            </h2>
+            <div class="gold-separator"></div>
+            <p class="text-white/70 text-lg md:text-xl font-work font-medium mb-10">
+                Take a tour of the course, range, and clubhouse
+            </p>
+            <div onclick="openVideoModal()" class="w-full max-w-[900px] aspect-video rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.3)] bg-black relative group cursor-pointer transition-transform duration-500 hover:shadow-[0_15px_40px_rgba(214,183,150,0.15)] border border-white/10 hover:border-[#d6b796]/50">
+                <img src="https://www.thehertsmere.co.uk/wp-content/themes/awsite/build/static/img/video-posters/home.jpg" alt="The Hertsmere Tour" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/20 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="w-[80px] h-[80px] rounded-full border-[2px] border-white/40 flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-[#d6b796]/90 group-hover:border-[#d6b796] group-hover:scale-105 pl-1">
+                        <iconify-icon icon="solar:play-bold" class="text-white text-3xl"></iconify-icon>
                     </div>
-
-                    <ul class="space-y-3 mb-8 scroll-reveal reveal-hidden stagger-1">
-                        <li class="flex items-start gap-3 group/item">
-                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
-                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Full access to course, range, and clubhouse</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-2">
-                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
-                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Free coaching sessions for adults and children</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-3">
-                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
-                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Buggy tours of the Donald Steel designed course</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-4">
-                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
-                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Toptracer and putting competitions</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-5">
-                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
-                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Complimentary coffee and bacon baps</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-6">
-                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
-                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">No obligation, no pressure</span>
-                        </li>
-                    </ul>
-
-                    <div class="bg-[#00a1a2]/15 border border-[#00a1a2]/30 rounded-[10px] p-5 lg:p-6 mt-8 scroll-reveal reveal-hidden delay-300 hover:bg-[#00a1a2]/25 hover:-translate-y-1 hover:border-[#00a1a2]/50 transition-all duration-300 cursor-default">
-                        <div class="flex items-center gap-3">
-                            <iconify-icon icon="solar:gift-linear" class="text-[#d6b796] text-xl" width="24" height="24"></iconify-icon>
-                            <span class="font-work font-medium text-white text-[0.95rem]">Join on the day and receive <span class="border-b border-[#d6b796] pb-0.5">up to £150 in bonus points</span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Side GHL Calendar -->
-                <div class="form-glass rounded-[20px] p-2 md:p-6 w-full relative will-change-transform scroll-reveal reveal-hidden slide-in-right delay-200 min-h-[500px] flex items-center justify-center">
-                    <iframe src="https://api.leadconnectorhq.com/widget/booking/FzuYNVjzuEtlEhbBS5s2" style="width: 100%; border:none; overflow: hidden; height: 600px; border-radius: 12px;" scrolling="no" id="FzuYNVjzuEtlEhbBS5s2_1769003864160"></iframe>
-                    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
                 </div>
             </div>
+            <p class="text-white/50 text-xs md:text-sm mt-6 font-work font-normal tracking-wide">2 minute tour</p>
         </div>
     </section>
 
@@ -1273,6 +996,230 @@ animation-play-state: paused;
         </div>
     </section>
 
+    <!-- Section 5: How Membership Works -->
+    <section id="how-it-works" class="bg-[#2d3d4d] py-20 relative overflow-hidden">
+        <div class="max-w-[1000px] mx-auto px-6 relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-14 scroll-reveal reveal-hidden">
+                <h2 class="font-serif font-semibold text-white tracking-tight mb-4" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">Simple, flexible, fair</h2>
+                <div class="gold-separator"></div>
+                <div class="max-w-[700px] mx-auto space-y-4 text-white/85 font-work font-normal text-[1.1rem] leading-[1.7] delay-100 animate-fade-in-up">
+                    <p>Most clubs lock you in. Pay up front. Use it or lose it. We do things differently.</p>
+                    <p>Our points based system gives you complete control. Choose your tier, receive your points, use them whenever suits you. Off peak rounds cost fewer points, so you can play more when the course is quieter. Unused points roll over. No penalties. No wasted money.</p>
+                </div>
+            </div>
+
+            <!-- Steps Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Connector Line (Desktop Only) -->
+                <div class="hidden md:block absolute top-[60px] left-0 w-full h-[2px] z-0 dashed-line scroll-reveal reveal-hidden delay-400"></div>
+
+                <!-- Step 1 -->
+                <div class="group step-card relative z-10 bg-white/5 border border-white/10 rounded-2xl p-10 text-center transition-all duration-300 scroll-reveal reveal-hidden stagger-1 flex flex-col items-center">
+                    <div class="step-number-container w-[100px] h-[100px] rounded-full border border-white/10 flex items-center justify-center bg-[#2d3d4d] relative z-20 transition-all duration-300">
+                         <span class="font-serif font-bold text-[#00a1a2] text-[3.5rem] group-hover:text-[#d6b796] transition-colors">1</span>
+                    </div>
+                    <h3 class="font-serif font-semibold text-white text-[1.25rem] mt-6 mb-3">Choose Your Tier</h3>
+                    <p class="font-work text-white/70 text-[1rem] leading-[1.6]">Flexi 1, 2, or 3 based on how often you play</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="group step-card relative z-10 bg-white/5 border border-white/10 rounded-2xl p-10 text-center transition-all duration-300 scroll-reveal reveal-hidden stagger-2 flex flex-col items-center">
+                    <div class="step-number-container w-[100px] h-[100px] rounded-full border border-white/10 flex items-center justify-center bg-[#2d3d4d] relative z-20 transition-all duration-300">
+                         <span class="font-serif font-bold text-[#00a1a2] text-[3.5rem] group-hover:text-[#d6b796] transition-colors">2</span>
+                    </div>
+                    <h3 class="font-serif font-semibold text-white text-[1.25rem] mt-6 mb-3">Receive Your Points</h3>
+                    <p class="font-work text-white/70 text-[1rem] leading-[1.6]">Your membership converts into points you control</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="group step-card relative z-10 bg-white/5 border border-white/10 rounded-2xl p-10 text-center transition-all duration-300 scroll-reveal reveal-hidden stagger-3 flex flex-col items-center">
+                    <div class="step-number-container w-[100px] h-[100px] rounded-full border border-white/10 flex items-center justify-center bg-[#2d3d4d] relative z-20 transition-all duration-300">
+                         <span class="font-serif font-bold text-[#00a1a2] text-[3.5rem] group-hover:text-[#d6b796] transition-colors">3</span>
+                    </div>
+                    <h3 class="font-serif font-semibold text-white text-[1.25rem] mt-6 mb-3">Play When You Want</h3>
+                    <p class="font-work text-white/70 text-[1rem] leading-[1.6]">Book rounds that fit your schedule. Off peak costs less. Points roll over.</p>
+                </div>
+            </div>
+
+            <!-- Key Benefits Strip -->
+            <div class="mt-14 flex justify-center scroll-reveal reveal-hidden stagger-4">
+                <div class="bg-white/5 rounded-[50px] px-8 py-5 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 border border-white/5 hover:border-[#d6b796]/30 transition-colors duration-300">
+                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
+                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">No long term contract</span>
+                    </div>
+                    <div class="hidden md:block w-px h-4 bg-white/15"></div>
+                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
+                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Points roll over</span>
+                    </div>
+                    <div class="hidden md:block w-px h-4 bg-white/15"></div>
+                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
+                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Transparent pricing</span>
+                    </div>
+                    <div class="hidden md:block w-px h-4 bg-white/15"></div>
+                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
+                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Monthly payment options</span>
+                    </div>
+                     <div class="hidden md:block w-px h-4 bg-white/15"></div>
+                    <div class="flex items-center gap-2 benefit-item transition-colors duration-200">
+                        <iconify-icon icon="solar:star-fall-linear" class="text-[#d6b796] benefit-icon transition-transform duration-200" width="18" height="18"></iconify-icon>
+                        <span class="text-white font-work font-medium text-[0.9rem] benefit-text transition-colors duration-200">Join on the day bonus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Membership Tiers / Pricing -->
+    <section class="bg-[#F5F5F3] py-20 px-6 relative" id="pricing">
+        <!-- Header -->
+        <div class="max-w-4xl mx-auto text-center mb-12 scroll-reveal reveal-hidden">
+            <h2 class="font-serif font-semibold text-[#2d3d4d] mb-4 tracking-tight leading-none" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">Choose your membership</h2>
+            <div class="gold-separator"></div>
+            <p class="font-work font-normal text-[#666] text-[1.1rem]">Three flexible tiers. One perfect fit for how you actually play.</p>
+        </div>
+
+        <!-- Open Day Offer Banner -->
+        <div class="max-w-[700px] mx-auto bg-[#00a1a2] rounded-xl p-5 mb-14 flex flex-col sm:flex-row items-center justify-center gap-3 shadow-lg shadow-[#00a1a2]/20 banner-pulse scroll-reveal reveal-hidden delay-100 group hover:scale-[1.01] transition-transform duration-300">
+            <iconify-icon icon="solar:star-fall-bold" class="text-[#d6b796] text-2xl mb-1 sm:mb-0"></iconify-icon>
+            <p class="font-work font-semibold text-white text-base text-center">Join on Open Day and receive up to £150 in bonus points</p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+
+            <!-- Flexi 1 -->
+            <div class="bg-white border border-[#e0e0e0] rounded-2xl p-8 lg:p-10 text-center card-hover-state scroll-reveal reveal-hidden stagger-1 flex flex-col h-full relative z-0">
+                <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.5rem] mb-2">Flexi 1</h3>
+                <div class="flex items-baseline justify-center gap-1 mb-4">
+                    <span class="font-serif font-bold text-[#2d3d4d] text-[3rem]">£250</span>
+                    <span class="font-work text-[#888] text-base">/year</span>
+                </div>
+                <p class="font-work font-medium text-[#00a1a2] text-base mb-4">100 points</p>
+                <p class="font-work text-[#666] text-[0.9rem] mb-6">Approximately 7 to 10 rounds per year</p>
+
+                <div class="bg-[#F9F9F9] rounded-lg p-3 mb-6">
+                    <span class="block text-[#555] text-[0.8rem] font-semibold uppercase tracking-wide mb-1 font-work">Best For:</span>
+                    <span class="text-[#555] text-[0.9rem] leading-tight block font-work">Occasional golfers, first time members, budget conscious players</span>
+                </div>
+
+                <div class="border-t border-[#eee] w-full my-2"></div>
+
+                <div class="mt-6 pricing-bonus-box border border-dashed border-[#00a1a2] rounded-lg p-4 group-hover:border-solid transition-all duration-300">
+                    <p class="font-work font-semibold text-[#00a1a2] text-[0.95rem]">Open Day Bonus</p>
+                    <p class="font-work font-bold text-[#00a1a2] text-lg">£50 in bonus points</p>
+                </div>
+
+                <button onclick="fbq('track', 'Lead'); gtag('event', 'generate_lead', {event_category: 'engagement', event_label: 'cta_click'}); document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="w-full mt-6 bg-transparent border-2 border-[#2d3d4d] text-[#2d3d4d] rounded-lg py-3.5 px-6 font-semibold text-sm uppercase tracking-wider hover:bg-[#2d3d4d] hover:text-white transition-colors duration-250 font-work">
+                    Book Your Free Place
+                </button>
+            </div>
+
+            <!-- Flexi 2 (Most Popular) -->
+            <div class="bg-white border-2 border-[#00a1a2] rounded-2xl p-8 lg:p-12 text-center relative shadow-[0_20px_50px_rgba(0,161,162,0.15)] transform md:scale-105 md:-translate-y-2 z-10 order-first md:order-none mb-8 md:mb-0 scroll-reveal reveal-hidden stagger-2 flex flex-col h-full transition-all duration-300 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,161,162,0.25)]">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#00a1a2] text-white px-6 py-1.5 rounded-full text-[0.8rem] font-work font-semibold tracking-wide shadow-md whitespace-nowrap">
+                    Most Popular
+                </div>
+
+                <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.5rem] mb-2">Flexi 2</h3>
+                <div class="flex items-baseline justify-center gap-1 mb-4">
+                    <span class="font-serif font-bold text-[#00a1a2] text-[3rem]">£460</span>
+                    <span class="font-work text-[#888] text-base">/year</span>
+                </div>
+                <p class="font-work font-medium text-[#2d3d4d] text-base mb-4">200 points</p>
+                <p class="font-work text-[#666] text-[0.9rem] mb-6">Approximately 15 to 20 rounds per year</p>
+
+                <div class="bg-[#F0FAF9] rounded-lg p-3 mb-6">
+                    <span class="block text-[#00a1a2] text-[0.8rem] font-semibold uppercase tracking-wide mb-1 font-work">Best For:</span>
+                    <span class="text-[#2d3d4d]/80 text-[0.9rem] leading-tight block font-work">Regular golfers, two to three times per month, best overall value</span>
+                </div>
+
+                <div class="border-t border-[#eee] w-full my-2"></div>
+
+                <div class="mt-6 pricing-bonus-box border border-dashed border-[#00a1a2] rounded-lg p-4 group-hover:border-solid transition-all duration-300">
+                    <p class="font-work font-semibold text-[#00a1a2] text-[0.95rem]">Open Day Bonus</p>
+                    <p class="font-work font-bold text-[#00a1a2] text-lg">£100 in bonus points</p>
+                </div>
+
+                <button onclick="fbq('track', 'Lead'); gtag('event', 'generate_lead', {event_category: 'engagement', event_label: 'cta_click'}); document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="w-full mt-6 bg-[#00a1a2] border-2 border-[#00a1a2] text-white rounded-lg py-3.5 px-6 font-semibold text-sm uppercase tracking-wider hover:bg-[#008f90] hover:border-[#008f90] transition-colors duration-250 shadow-lg shadow-[#00a1a2]/20 font-work cta-shimmer">
+                    Book Your Free Place
+                </button>
+            </div>
+
+            <!-- Flexi 3 -->
+            <div class="bg-white border border-[#e0e0e0] rounded-2xl p-8 lg:p-10 text-center card-hover-state scroll-reveal reveal-hidden stagger-3 flex flex-col h-full relative z-0">
+                <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.5rem] mb-2">Flexi 3</h3>
+                <div class="flex items-baseline justify-center gap-1 mb-4">
+                    <span class="font-serif font-bold text-[#2d3d4d] text-[3rem]">£790</span>
+                    <span class="font-work text-[#888] text-base">/year</span>
+                </div>
+                <p class="font-work font-medium text-[#00a1a2] text-base mb-4">360 points</p>
+                <p class="font-work text-[#666] text-[0.9rem] mb-6">Approximately 30 to 45 rounds per year</p>
+
+                <div class="bg-[#F9F9F9] rounded-lg p-3 mb-6">
+                    <span class="block text-[#555] text-[0.8rem] font-semibold uppercase tracking-wide mb-1 font-work">Best For:</span>
+                    <span class="text-[#555] text-[0.9rem] leading-tight block font-work">Dedicated golfers, weekly play or more, focused on competition</span>
+                </div>
+
+                <div class="border-t border-[#eee] w-full my-2"></div>
+
+                <div class="mt-6 pricing-bonus-box border border-dashed border-[#00a1a2] rounded-lg p-4 group-hover:border-solid transition-all duration-300">
+                    <p class="font-work font-semibold text-[#00a1a2] text-[0.95rem]">Open Day Bonus</p>
+                    <p class="font-work font-bold text-[#00a1a2] text-lg">£150 in bonus points</p>
+                </div>
+
+                <button onclick="fbq('track', 'Lead'); gtag('event', 'generate_lead', {event_category: 'engagement', event_label: 'cta_click'}); document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})" class="w-full mt-6 bg-transparent border-2 border-[#2d3d4d] text-[#2d3d4d] rounded-lg py-3.5 px-6 font-semibold text-sm uppercase tracking-wider hover:bg-[#2d3d4d] hover:text-white transition-colors duration-250 font-work">
+                    Book Your Free Place
+                </button>
+            </div>
+        </div>
+
+        <!-- All Tiers Include Footer -->
+        <div class="max-w-[900px] mx-auto mt-16 scroll-reveal reveal-hidden stagger-4">
+            <h4 class="text-center font-serif font-semibold text-[#2d3d4d] mb-8 text-lg">All tiers include:</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 mb-10">
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">10% off Toptracer range</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">10% off buggy hire</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">10% off Script Restaurant</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">14 day advance booking</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">England Golf membership</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">World Handicap System</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Guest privileges</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center md:justify-start">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Year round access</span>
+                </div>
+            </div>
+            <p class="text-center font-work text-[#888] text-[0.8rem] leading-relaxed max-w-[700px] mx-auto">
+                England Golf membership fee of £23.75 applies (reduced if this is your second club). All bonus points valued at £2.50 per point.
+            </p>
+        </div>
+    </section>
 
     <!-- FAQ SECTION -->
     <section class="bg-[#F5F5F3] py-20 px-6">
@@ -1284,12 +1231,12 @@ animation-play-state: paused;
                 <!-- FAQ 1 -->
                 <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
                     <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
-                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Do I need to be a golfer to attend the Open Day?</span>
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Do I need to be a golfer to come?</span>
                         <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
                         <div class="px-6 pb-5 pt-2">
-                            <p class="text-gray-600 font-work leading-relaxed">Not at all. The Open Day is designed for complete beginners through to experienced players. You can explore the facilities, enjoy the Toptracer range, and have lunch at Script without ever touching a golf club.</p>
+                            <p class="text-gray-600 font-work leading-relaxed">Not at all. The Open Day is for everyone — golfers, families, foodies, or just curious locals. You don't need to play golf to enjoy the day.</p>
                         </div>
                     </div>
                 </div>
@@ -1297,12 +1244,12 @@ animation-play-state: paused;
                 <!-- FAQ 2 -->
                 <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
                     <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
-                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Is there any obligation to join if I attend?</span>
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Is there any obligation to join?</span>
                         <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
                         <div class="px-6 pb-5 pt-2">
-                            <p class="text-gray-600 font-work leading-relaxed">Absolutely none. The Open Day is a chance to experience The Hertsmere and ask questions. There's no pressure and no hard sell.</p>
+                            <p class="text-gray-600 font-work leading-relaxed">None whatsoever. Come, explore, eat, leave. No pressure, no hard sell.</p>
                         </div>
                     </div>
                 </div>
@@ -1310,12 +1257,12 @@ animation-play-state: paused;
                 <!-- FAQ 3 -->
                 <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
                     <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
-                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">What's the difference between the Flexi tiers?</span>
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Can I bring my family?</span>
                         <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
                         <div class="px-6 pb-5 pt-2">
-                            <p class="text-gray-600 font-work leading-relaxed">The tiers are based on how often you play. Flexi 1 (£250/year, 100 points) suits occasional golfers. Flexi 2 (£460/year, 200 points) is most popular for regular players. Flexi 3 (£790/year, 360 points) is for dedicated golfers who play weekly. All tiers include the same benefits.</p>
+                            <p class="text-gray-600 font-work leading-relaxed">Please do. We have coaching for kids, Toptracer games the whole family can enjoy, and Script Restaurant welcomes everyone.</p>
                         </div>
                     </div>
                 </div>
@@ -1323,12 +1270,12 @@ animation-play-state: paused;
                 <!-- FAQ 4 -->
                 <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
                     <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
-                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Can I bring my family to the Open Day?</span>
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">What should I wear?</span>
                         <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
                         <div class="px-6 pb-5 pt-2">
-                            <p class="text-gray-600 font-work leading-relaxed">Please do. We have coaching sessions for children, Toptracer games the whole family can enjoy, and Script Restaurant welcomes everyone.</p>
+                            <p class="text-gray-600 font-work leading-relaxed">Whatever you're comfortable in. Smart casual is fine. If you want to try the range, trainers are best.</p>
                         </div>
                     </div>
                 </div>
@@ -1336,34 +1283,8 @@ animation-play-state: paused;
                 <!-- FAQ 5 -->
                 <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
                     <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
-                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">What happens to unused points?</span>
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Is there parking?</span>
                         <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="px-6 pb-5 pt-2">
-                            <p class="text-gray-600 font-work leading-relaxed">They roll over. Unlike traditional memberships, your points carry forward. No penalties, no wasted money.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
-                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
-                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">How do I claim the join on the day bonus?</span>
-                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                        <div class="px-6 pb-5 pt-2">
-                            <p class="text-gray-600 font-work leading-relaxed">Complete your membership signup during the Open Day and bonus points are added automatically. Flexi 1 gets £50, Flexi 2 gets £100, Flexi 3 gets £150.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
-                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
-                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Is there parking available?</span>
-                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-colors"></iconify-icon>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
                         <div class="px-6 pb-5 pt-2">
@@ -1371,9 +1292,100 @@ animation-play-state: paused;
                         </div>
                     </div>
                 </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">Do I need to book?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">It helps us plan, but you can drop in on the day. Booking guarantees you a coaching slot if you want one.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleFaq(this)" class="faq-question w-full text-left px-6 py-5 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors">
+                        <span class="font-serif font-semibold text-[#2d3d4d] text-lg">What if I'm interested in membership?</span>
+                        <iconify-icon icon="solar:add-circle-linear" width="24" height="24" class="faq-icon text-[#00a1a2] flex-shrink-0 transition-colors"></iconify-icon>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 pb-5 pt-2">
+                            <p class="text-gray-600 font-work leading-relaxed">Chat to the team on the day. They'll answer your questions and explain the Flexi options. Join on the day and you'll get up to £150 in bonus points.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- SECTION 8: Book Your Free Place -->
+    <section id="book-now" class="relative bg-[#2d3d4d] py-24 px-6 overflow-hidden">
+        <!-- Background Grain Overlay -->
+        <div class="absolute inset-0 bg-grain pointer-events-none z-0 opacity-[0.03]"></div>
+
+        <div class="max-w-[1100px] mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-start">
+
+                <!-- Left Content -->
+                <div class="flex flex-col h-full justify-center">
+                    <div class="scroll-reveal reveal-hidden">
+                        <h2 class="font-serif font-semibold text-white tracking-[0.02em] mb-6 leading-tight" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">
+                            Book your free place
+                        </h2>
+                        <div class="gold-separator ml-0"></div>
+                        <p class="font-work font-normal text-white/85 text-[1.15rem] leading-[1.6] mb-8">
+                            Sunday 8th February, 10am to 2pm. Drop in anytime. Stay as long as you like.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 scroll-reveal reveal-hidden stagger-1">
+                        <li class="flex items-start gap-3 group/item">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
+                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Full access to course, range, and clubhouse</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-2">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
+                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Free coaching sessions for adults and children</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-3">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
+                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Buggy tours of the Donald Steel designed course</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-4">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
+                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Toptracer and putting competitions</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-5">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
+                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">Complimentary coffee and bacon baps</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item scroll-reveal reveal-hidden stagger-6">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] mt-1 shrink-0 transition-transform duration-200 group-hover/item:scale-115" width="20" height="20"></iconify-icon>
+                            <span class="font-work text-white/90 text-[1rem] leading-[1.8]">No obligation, no pressure</span>
+                        </li>
+                    </ul>
+
+                    <div class="bg-[#00a1a2]/15 border border-[#00a1a2]/30 rounded-[10px] p-5 lg:p-6 mt-8 scroll-reveal reveal-hidden delay-300 hover:bg-[#00a1a2]/25 hover:-translate-y-1 hover:border-[#00a1a2]/50 transition-all duration-300 cursor-default">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="solar:gift-linear" class="text-[#d6b796] text-xl" width="24" height="24"></iconify-icon>
+                            <span class="font-work font-medium text-white text-[0.95rem]">Join on the day and receive <span class="border-b border-[#d6b796] pb-0.5">up to £150 in bonus points</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side GHL Calendar -->
+                <div class="form-glass rounded-[20px] p-2 md:p-6 w-full relative will-change-transform scroll-reveal reveal-hidden slide-in-right delay-200 min-h-[500px] flex items-center justify-center">
+                    <iframe src="https://api.leadconnectorhq.com/widget/booking/FzuYNVjzuEtlEhbBS5s2" style="width: 100%; border:none; overflow: hidden; height: 600px; border-radius: 12px;" scrolling="no" id="FzuYNVjzuEtlEhbBS5s2_1769003864160"></iframe>
+                    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Immersive Gallery Carousel -->
     <section class="relative w-full h-[70vh] md:h-[80vh] bg-[#2d3d4d] overflow-hidden group">
         
@@ -1473,13 +1485,13 @@ animation-play-state: paused;
         
         <div class="max-w-4xl mx-auto text-center relative z-10">
             <h2 class="font-serif font-semibold text-white mb-6 tracking-tight leading-tight" style="font-size: clamp(1.75rem, 4vw, 2.75rem);">
-                Ready to see what golf without the barriers looks like?
+                Come and see what we're all about
             </h2>
             <p class="text-gray-300 font-work text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                Join us on Sunday 8th February. Free entry, free coaching, free food. No obligation.
+                Sunday 8th February. 10am – 2pm. Free entry. Everyone's welcome.
             </p>
             
-            <a href="#booking" class="inline-block bg-[#00a1a2] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#008f90] transition-all duration-300 transform hover:scale-105 hover:shadow-[0_10px_40px_rgba(0,161,162,0.3)] font-work mb-6">
+            <a href="#booking" onclick="fbq('track', 'Lead'); gtag('event', 'generate_lead', {event_category: 'engagement', event_label: 'cta_click'});" class="inline-block bg-[#00a1a2] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#008f90] transition-all duration-300 transform hover:scale-105 hover:shadow-[0_10px_40px_rgba(0,161,162,0.3)] font-work mb-6">
                 Book Your Free Place
             </a>
             
@@ -1539,7 +1551,7 @@ animation-play-state: paused;
                     <h4 class="text-[#d6b796] text-xs uppercase tracking-widest mb-8 font-semibold font-work" style="letter-spacing: 0.15em;">Open Day</h4>
                     <p class="text-gray-400 text-sm mb-3 font-work">Sunday 8th February</p>
                     <p class="text-gray-400 text-sm mb-6 font-work">10am to 2pm</p>
-                    <a href="#booking" class="inline-block bg-[#00a1a2] text-white px-6 py-3 rounded text-sm font-semibold hover:bg-[#008f90] transition-all duration-200 transform hover:scale-105 hover:shadow-lg font-work">
+                    <a href="#booking" onclick="fbq('track', 'Lead'); gtag('event', 'generate_lead', {event_category: 'engagement', event_label: 'cta_click'});" class="inline-block bg-[#00a1a2] text-white px-6 py-3 rounded text-sm font-semibold hover:bg-[#008f90] transition-all duration-200 transform hover:scale-105 hover:shadow-lg font-work">
                         Book Your Place
                     </a>
                 </div>
@@ -1937,5 +1949,37 @@ animation-play-state: paused;
 
 
     </script>
+
+    <!-- GoHighLevel External Tracking -->
+    <script
+      src="https://link.msgsndr.com/js/external-tracking.js"
+      data-tracking-id="tk_355c1601b41340b08498d3c6a4dc80d0"
+    ></script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MBH71EGLX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7MBH71EGLX');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1176422119432162');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1176422119432162&ev=PageView&noscript=1"
+    /></noscript>
 
 </body></html>
