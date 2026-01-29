@@ -494,6 +494,37 @@ animation-play-state: paused;
   will-change: auto;
 }
 
+/* Scroll reveal with translate up for intro section */
+.scroll-reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-up:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.scroll-reveal-up:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.scroll-reveal-up:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+/* Parallax images */
+.parallax-image {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
 /* Staggered children animations */
 .stagger-children > * {
   opacity: 0;
@@ -753,6 +784,47 @@ animation-play-state: paused;
             </div>
         </div>
     </header>
+
+    <!-- SECTION: Introduction / About -->
+    <section class="relative bg-[#f8f7f4] py-20 md:py-32 px-6 overflow-hidden">
+        <div class="max-w-[1200px] mx-auto">
+            <!-- Centered Headline -->
+            <h2 class="text-center font-serif text-[2.5rem] md:text-[3rem] leading-[1.2] text-[#2d3d4d] mb-16 md:mb-24 max-w-[900px] mx-auto">
+                A fresh approach to <span class="italic">golf</span>, wrapped up in 180 acres of Hertfordshire parkland
+            </h2>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-center">
+                <!-- Text Column -->
+                <div class="scroll-reveal-up">
+                    <p class="font-work text-lg md:text-xl leading-relaxed text-[#2d3d4d] mb-8">
+                        The Hertsmere offers championship golf without the stuffy traditions. A warm welcome, world-class facilities, and a place where everyone belongs.
+                    </p>
+                    <a href="#booking" class="inline-block bg-[#00a1a2] text-white px-8 py-4 rounded-lg font-semibold uppercase tracking-[0.05em] hover:bg-[#008b8c] transition-all duration-300 font-work text-sm">
+                        Book a Tee Time
+                    </a>
+                </div>
+
+                <!-- Image 1 - Landscape -->
+                <div class="scroll-reveal-up parallax-image" data-speed="0.9">
+                    <img src="/assets/aerial-course.webp" alt="Aerial view of The Hertsmere golf course" class="w-full h-[400px] object-cover rounded-lg shadow-lg" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <!-- Bottom Images Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+                <!-- Image 2 - Portrait -->
+                <div class="scroll-reveal-up parallax-image" data-speed="0.85">
+                    <img src="/assets/course-tour.webp" alt="Golf course fairway" class="w-full h-[500px] object-cover rounded-lg shadow-lg" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Image 3 - Landscape -->
+                <div class="scroll-reveal-up parallax-image" data-speed="0.95">
+                    <img src="/assets/putting-green.webp" alt="Putting green at The Hertsmere" class="w-full h-[400px] object-cover rounded-lg shadow-lg" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- SECTION: What is an Open Day? -->
     <section id="what-is-open-day" class="scroll-reveal py-20 px-6 bg-[#F5F5F3]">
@@ -2251,6 +2323,18 @@ animation-play-state: paused;
     // Observe all scroll-reveal elements
     document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 
+    // Observer for scroll-reveal-up elements (intro section)
+    const observerUp = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observerUp.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal-up').forEach(el => observerUp.observe(el));
+
     // ===================================
     // 2. PARALLAX SCROLL EFFECT
     // ===================================
@@ -2273,6 +2357,21 @@ animation-play-state: paused;
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
               el.style.transform = `translateY(${scrolled * speed}px)`;
+            }
+          });
+
+          // Intro section image parallax
+          document.querySelectorAll('.parallax-image').forEach(el => {
+            const speed = parseFloat(el.dataset.speed) || 0.9;
+            const rect = el.getBoundingClientRect();
+            const elementTop = rect.top + window.scrollY;
+            const elementHeight = rect.height;
+
+            // Only apply parallax when element is in viewport
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              const scrollPercent = (scrolled - elementTop + window.innerHeight) / (window.innerHeight + elementHeight);
+              const movement = (scrollPercent - 0.5) * 50 * (1 - speed);
+              el.style.transform = `translateY(${movement}px)`;
             }
           });
 
