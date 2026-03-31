@@ -1464,7 +1464,7 @@ animation-play-state: paused;
     </section>
 
     <!-- Section: Masters Draw Prize -->
-    <section class="scroll-reveal bg-[#2d3d4d] py-0 relative overflow-hidden">
+    <section id="masters-draw" class="scroll-reveal bg-[#2d3d4d] py-0 relative overflow-hidden">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch min-h-[420px]">
 
             <!-- Left: Image -->
@@ -2527,6 +2527,63 @@ animation-play-state: paused;
         }
 
 
+    </script>
+
+    <!-- Masters Draw Popup -->
+    <div id="popup-masters-draw" class="fixed inset-0 z-[70] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/70 transition-opacity duration-300 opacity-0 modal-overlay" onclick="closeDrawPopup()"></div>
+        <div class="fixed inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <div class="pointer-events-auto relative w-full max-w-md bg-[#2d3d4d] rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 ease-out modal-panel overflow-hidden">
+                <!-- Close button -->
+                <button onclick="closeDrawPopup()" class="absolute top-3 right-3 z-20 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+                </button>
+                <!-- Image -->
+                <div class="relative h-44 overflow-hidden">
+                    <img src="assets/golden-ball.webp" alt="Cleveland wedge prize" class="w-full h-full object-cover object-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2d3d4d] via-[#2d3d4d]/30 to-transparent"></div>
+                    <div class="absolute top-4 left-4 bg-[#00a1a2] text-white text-[0.65rem] font-work font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full">Open Day Exclusive</div>
+                </div>
+                <!-- Content -->
+                <div class="px-7 pt-4 pb-7 text-center">
+                    <p class="font-work text-[#00a1a2] text-[0.68rem] font-semibold uppercase tracking-[0.18em] mb-2">Masters Draw</p>
+                    <h3 class="font-serif font-semibold text-white text-[1.5rem] leading-tight mb-3">Win a Cleveland wedge<br>worth £160</h3>
+                    <p class="font-work text-white/75 text-[0.9rem] leading-relaxed mb-6">Join as a Flexi member on <strong class="text-white">11th April</strong> and you're automatically entered. One winner. Drawn on the day.</p>
+                    <a href="#masters-draw" onclick="closeDrawPopup()" class="block w-full bg-[#00a1a2] hover:bg-[#008f90] text-white font-work font-semibold text-[0.95rem] py-3 rounded-xl transition-colors duration-200 mb-3">See the prize draw</a>
+                    <button onclick="closeDrawPopup()" class="font-work text-white/40 text-[0.8rem] hover:text-white/70 transition-colors">No thanks</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeDrawPopup() {
+            const popup = document.getElementById('popup-masters-draw');
+            const overlay = popup.querySelector('.modal-overlay');
+            const panel = popup.querySelector('.modal-panel');
+            overlay.classList.add('opacity-0');
+            panel.classList.remove('scale-100', 'opacity-100');
+            panel.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { popup.classList.add('hidden'); document.body.style.overflow = ''; }, 300);
+            sessionStorage.setItem('drawPopupSeen', '1');
+        }
+
+        if (!sessionStorage.getItem('drawPopupSeen')) {
+            setTimeout(() => {
+                const popup = document.getElementById('popup-masters-draw');
+                const overlay = popup.querySelector('.modal-overlay');
+                const panel = popup.querySelector('.modal-panel');
+                popup.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        overlay.classList.remove('opacity-0');
+                        panel.classList.remove('scale-95', 'opacity-0');
+                        panel.classList.add('scale-100', 'opacity-100');
+                    });
+                });
+            }, 30000);
+        }
     </script>
 
     <!-- GoHighLevel External Tracking -->
