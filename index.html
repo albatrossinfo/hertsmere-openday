@@ -1464,18 +1464,30 @@ animation-play-state: paused;
     </section>
 
     <!-- Section: Masters Draw Prize -->
-    <section class="scroll-reveal bg-[#00a1a2] py-16 px-6 relative overflow-hidden">
-        <!-- Subtle background pattern -->
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px); background-size: 40px 40px;"></div>
-        <div class="max-w-3xl mx-auto text-center relative z-10 scroll-reveal reveal-hidden">
-            <p class="font-work text-white/70 text-[0.72rem] font-semibold uppercase tracking-[0.18em] mb-3">Open Day Exclusive</p>
-            <h2 class="font-serif font-semibold text-white tracking-tight leading-tight mb-4" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">Win a Cleveland wedge worth £160</h2>
-            <div class="w-12 h-[2px] bg-[#FFE6A1] mx-auto mb-5"></div>
-            <p class="font-work text-white/90 text-[1.05rem] leading-relaxed max-w-xl mx-auto mb-8">Join as a Flexi member on 11th April and you'll automatically be entered into our <strong class="text-[#FFE6A1] font-semibold">Masters Draw</strong>. One winner. One wedge. Drawn on the day.</p>
-            <div class="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-6 py-3">
-                <iconify-icon icon="solar:gift-bold" class="text-[#FFE6A1] text-xl shrink-0"></iconify-icon>
-                <span class="font-work font-semibold text-white text-[0.9rem]">Every member who joins on the day is entered — no purchase beyond membership required</span>
+    <section class="scroll-reveal bg-[#2d3d4d] py-0 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch min-h-[420px]">
+
+            <!-- Left: Image -->
+            <div class="relative w-full md:w-1/2 min-h-[280px] md:min-h-0 overflow-hidden">
+                <img src="assets/golden-ball.webp" alt="Cleveland wedge prize" class="absolute inset-0 w-full h-full object-cover object-center">
+                <!-- Dark overlay for text contrast -->
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#2d3d4d]/60 hidden md:block"></div>
+                <!-- Prize badge overlaid on image -->
+                <div class="absolute top-5 left-5 bg-[#00a1a2] text-white text-[0.68rem] font-work font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">Open Day Exclusive</div>
             </div>
+
+            <!-- Right: Content -->
+            <div class="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-12 scroll-reveal reveal-hidden">
+                <p class="font-work text-[#00a1a2] text-[0.72rem] font-semibold uppercase tracking-[0.18em] mb-3">Masters Draw</p>
+                <h2 class="font-serif font-semibold text-white tracking-tight leading-tight mb-4" style="font-size: clamp(1.75rem, 2.5vw, 2.5rem);">Win a Cleveland<br>wedge worth £160</h2>
+                <div class="w-10 h-[2px] bg-[#FFE6A1] mb-5"></div>
+                <p class="font-work text-white/80 text-[1rem] leading-relaxed mb-8">Join as a Flexi member on 11th April and you'll automatically be entered into our draw. One winner. One wedge. <span class="text-[#FFE6A1] font-semibold">Drawn on the day.</span></p>
+                <div class="flex items-start gap-3 bg-white/8 border border-white/15 rounded-xl px-5 py-4">
+                    <iconify-icon icon="solar:gift-bold" class="text-[#FFE6A1] text-xl shrink-0 mt-0.5"></iconify-icon>
+                    <span class="font-work text-white/75 text-[0.88rem] leading-snug">Every member who joins on the day is entered automatically — no extra purchase required</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
