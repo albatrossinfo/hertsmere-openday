@@ -2860,22 +2860,15 @@ animation-play-state: paused;
                 gtag('event', 'generate_lead', {event_category: 'form_submit', event_label: 'openday_signup'});
             }
 
-            // GHL webhook — paste your webhook URL here once set up in GoHighLevel
-            var GHL_WEBHOOK = '';
-
             function redirect() {
                 window.location.href = '/thankyou?name=' + encodeURIComponent(name.split(' ')[0]);
             }
 
-            if (GHL_WEBHOOK) {
-                fetch(GHL_WEBHOOK, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({name: name, email: email, source: 'Hertsmere Open Day - May 2026'})
-                }).catch(function(){}).finally(redirect);
-            } else {
-                redirect();
-            }
+            fetch('/api/register', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name: name, email: email})
+            }).catch(function(){}).finally(redirect);
         });
     })();
     </script>
