@@ -1928,10 +1928,37 @@ animation-play-state: paused;
                     </div>
                 </div>
 
-                <!-- Right Side GHL Calendar -->
-                <div class="form-glass rounded-[20px] p-2 md:p-6 w-full relative will-change-transform scroll-reveal reveal-hidden slide-in-right delay-200 min-h-[500px] flex items-center justify-center">
-                    <iframe src="https://api.leadconnectorhq.com/widget/booking/FzuYNVjzuEtlEhbBS5s2" style="width: 100%; border:none; overflow: hidden; height: 600px; border-radius: 12px;" scrolling="no" id="FzuYNVjzuEtlEhbBS5s2_1769003864160"></iframe>
-                    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+                <!-- Right Side: Sign-up Form -->
+                <div class="form-glass rounded-[20px] p-6 md:p-8 w-full relative will-change-transform scroll-reveal reveal-hidden slide-in-right delay-200">
+                    <h3 class="font-serif text-white text-[1.35rem] font-semibold mb-1">Reserve your spot</h3>
+                    <p class="font-work text-white/60 text-[0.88rem] mb-6">Saturday 9th May &middot; 10am to 2pm &middot; Free entry</p>
+
+                    <form id="openday-form" novalidate class="space-y-4">
+                        <div>
+                            <label for="od-name" class="font-work text-white/75 text-[0.78rem] font-semibold uppercase tracking-[0.1em] block mb-1.5">Your name</label>
+                            <input type="text" id="od-name" name="name" required placeholder="First and last name"
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/35 font-work text-[0.95rem] focus:outline-none focus:border-[#00a1a2] focus:bg-white/15 transition-all duration-200">
+                        </div>
+                        <div>
+                            <label for="od-email" class="font-work text-white/75 text-[0.78rem] font-semibold uppercase tracking-[0.1em] block mb-1.5">Email address</label>
+                            <input type="email" id="od-email" name="email" required placeholder="you@example.com"
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/35 font-work text-[0.95rem] focus:outline-none focus:border-[#00a1a2] focus:bg-white/15 transition-all duration-200">
+                        </div>
+                        <div class="flex items-start gap-3 pt-1">
+                            <input type="checkbox" id="od-gdpr" name="gdpr" required
+                                class="mt-[3px] shrink-0 w-4 h-4 rounded accent-[#00a1a2] cursor-pointer">
+                            <label for="od-gdpr" class="font-work text-white/60 text-[0.82rem] leading-relaxed cursor-pointer">
+                                I'm happy for The Hertsmere to send me updates about membership and events. You can unsubscribe at any time.
+                            </label>
+                        </div>
+                        <div id="od-error" class="hidden text-[#f87171] font-work text-[0.82rem] pt-1"></div>
+                        <button type="submit" id="od-submit"
+                            class="w-full bg-[#00a1a2] hover:bg-[#008f90] text-white font-work font-semibold text-[0.9rem] tracking-[0.08em] uppercase py-4 rounded-xl transition-all duration-200 shadow-lg shadow-[#00a1a2]/20 hover:shadow-[#00a1a2]/30 hover:scale-[1.015] mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100">
+                            Book my free place
+                        </button>
+                    </form>
+
+                    <p class="font-work text-white/35 text-[0.72rem] text-center mt-5">No spam. Unsubscribe anytime.</p>
                 </div>
             </div>
         </div>
@@ -2724,6 +2751,56 @@ animation-play-state: paused;
             stickyCta.classList.add('translate-y-full');
         }
     });
+    </script>
+
+    <!-- Open Day Form Handler -->
+    <script>
+    (function() {
+        var form = document.getElementById('openday-form');
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var name  = document.getElementById('od-name').value.trim();
+            var email = document.getElementById('od-email').value.trim();
+            var gdpr  = document.getElementById('od-gdpr').checked;
+            var err   = document.getElementById('od-error');
+            var btn   = document.getElementById('od-submit');
+
+            // Basic validation
+            if (!name || !email || !gdpr) {
+                err.textContent = 'Please fill in all fields and tick the consent box.';
+                err.classList.remove('hidden');
+                return;
+            }
+            err.classList.add('hidden');
+            btn.textContent = 'Saving your place...';
+            btn.disabled = true;
+
+            // GA event
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {event_category: 'form_submit', event_label: 'openday_signup'});
+            }
+
+            // GHL webhook — paste your webhook URL here once set up in GoHighLevel
+            var GHL_WEBHOOK = '';
+
+            function redirect() {
+                window.location.href = '/thankyou?name=' + encodeURIComponent(name.split(' ')[0]);
+            }
+
+            if (GHL_WEBHOOK) {
+                fetch(GHL_WEBHOOK, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({name: name, email: email, source: 'Hertsmere Open Day - May 2026'})
+                }).catch(function(){}).finally(redirect);
+            } else {
+                redirect();
+            }
+        });
+    })();
     </script>
 
 </body></html>

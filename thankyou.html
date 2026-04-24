@@ -1,0 +1,218 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're in — The Hertsmere Open Day</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'serif': ['Zilla Slab', 'Georgia', 'serif'],
+          'sans': ['Work Sans', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.font-serif { font-family: 'Zilla Slab', Georgia, serif; }
+.font-work  { font-family: 'Work Sans', system-ui, sans-serif; }
+
+.gold-separator {
+    width: 40px;
+    height: 2px;
+    background: #d6b796;
+    margin-bottom: 1.5rem;
+}
+.form-glass {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+}
+.bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+}
+</style>
+</head>
+<body class="bg-[#fcfaf7] text-[#2d3d4d] antialiased">
+
+    <!-- Simple nav bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#2d3d4d]/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-[90rem] mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <img src="/assets/hertsmere-logo-kingfisher.png" alt="The Hertsmere" class="h-8 w-auto brightness-0 invert opacity-90">
+            </a>
+            <a href="https://www.thehertsmere.co.uk" target="_blank"
+               class="font-work text-white/70 hover:text-white text-sm transition-colors">
+                thehertsmere.co.uk
+            </a>
+        </div>
+    </nav>
+
+    <!-- Confirmation Hero -->
+    <section class="relative bg-[#2d3d4d] pt-32 pb-16 px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-grain pointer-events-none z-0 opacity-[0.03]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1c2631] to-[#2d3d4d] z-0"></div>
+
+        <div class="max-w-2xl mx-auto text-center relative z-10">
+            <!-- Tick icon -->
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#00a1a2]/20 border border-[#00a1a2]/40 mb-6">
+                <iconify-icon icon="solar:check-circle-bold" class="text-[#00a1a2]" width="36" height="36"></iconify-icon>
+            </div>
+
+            <p class="font-work text-[#00a1a2] text-[0.72rem] font-semibold uppercase tracking-[0.2em] mb-3">You're confirmed</p>
+            <h1 class="font-serif font-semibold text-white leading-tight mb-4" style="font-size: clamp(2rem, 4vw, 3rem);">
+                See you on <span class="italic text-[#d6b796]">9th May</span>
+            </h1>
+            <div class="gold-separator mx-auto"></div>
+            <p class="font-work text-white/75 text-[1.05rem] leading-relaxed max-w-xl mx-auto mb-8">
+                We've got your details. Drop in any time between 10am and 2pm — no need to arrive at a specific time.
+            </p>
+
+            <!-- Event details strip -->
+            <div class="inline-flex flex-wrap justify-center gap-6 text-[#d6b796] text-xs font-semibold uppercase tracking-[0.18em] font-work">
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:calendar-linear" width="16" height="16" class="text-white/50"></iconify-icon>
+                    Saturday 9th May
+                </span>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:clock-circle-linear" width="16" height="16" class="text-white/50"></iconify-icon>
+                    10am &ndash; 2pm
+                </span>
+                <span class="flex items-center gap-2">
+                    <iconify-icon icon="solar:ticket-linear" width="16" height="16" class="text-white/50"></iconify-icon>
+                    Free entry
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book a tee time / appointment -->
+    <section class="bg-[#f5f5f3] py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+
+            <div class="text-center mb-10">
+                <p class="font-work text-[#00a1a2] text-[0.72rem] font-semibold uppercase tracking-[0.2em] mb-3">Optional</p>
+                <h2 class="font-serif font-semibold text-[#2d3d4d] mb-3 tracking-tight" style="font-size: clamp(1.6rem, 3vw, 2.1rem);">
+                    Want to book a round while you're here?
+                </h2>
+                <div class="gold-separator mx-auto"></div>
+                <p class="font-work text-[#666] text-[1rem] max-w-lg mx-auto">
+                    Book a tee time to fit around the Open Day. If you join on the day, your bonus points cover the green fee.
+                </p>
+            </div>
+
+            <!-- GHL Calendar -->
+            <div class="bg-white rounded-2xl shadow-sm border border-[#e8e8e8] p-4 md:p-6">
+                <iframe src="https://api.leadconnectorhq.com/widget/booking/FzuYNVjzuEtlEhbBS5s2"
+                    style="width: 100%; border: none; overflow: hidden; height: 650px; border-radius: 8px;"
+                    scrolling="no"
+                    id="FzuYNVjzuEtlEhbBS5s2_thankyou">
+                </iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+            </div>
+
+            <p class="font-work text-[#999] text-[0.8rem] text-center mt-4">
+                Not ready to book a round? No problem &mdash; just turn up on the day.
+                <a href="/" class="text-[#00a1a2] hover:underline ml-1">Back to the Open Day page</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- What to expect (quick summary) -->
+    <section class="bg-white py-16 px-6">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.3rem] mb-8 text-center">What to expect on the day</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex items-start gap-3">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0 mt-0.5" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Full access to course, range, and clubhouse</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0 mt-0.5" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Free coaching sessions for adults and children</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0 mt-0.5" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Buggy tours of the Donald Steel designed course</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0 mt-0.5" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Toptracer and Golden Ball competitions</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0 mt-0.5" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Free tea, coffee, pastries and canapes</span>
+                </div>
+                <div class="flex items-start gap-3">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-[#00a1a2] shrink-0 mt-0.5" width="20" height="20"></iconify-icon>
+                    <span class="font-work text-[#555] text-[0.95rem]">Join on the day — bonus points + free meal at Script</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a2530] py-12 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
+            <div>
+                <img src="/assets/hertsmere-logo-kingfisher.png" alt="The Hertsmere" class="h-10 w-auto brightness-0 invert opacity-80 mb-4">
+                <p class="font-work text-gray-400 text-sm leading-relaxed">
+                    Watling Street, Elstree,<br>
+                    Borehamwood, WD6 3AA
+                </p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a href="tel:02045585544" class="font-work text-gray-400 hover:text-white text-sm transition-colors">020 4558 5544</a>
+                <a href="mailto:info@thehertsmere.co.uk" class="font-work text-gray-400 hover:text-white text-sm transition-colors">info@thehertsmere.co.uk</a>
+                <a href="/" class="font-work text-[#00a1a2] hover:text-white text-sm transition-colors mt-2">Back to Open Day page</a>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto mt-8 pt-6 border-t border-gray-800">
+            <p class="font-work text-gray-600 text-xs">&copy; 2026 The Hertsmere Golf Club. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MBH71EGLX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7MBH71EGLX');
+
+      // Track thank you page view as conversion
+      gtag('event', 'conversion', {event_category: 'openday', event_label: 'signup_complete'});
+    </script>
+
+    <!-- GoHighLevel External Tracking -->
+    <script
+      src="https://link.msgsndr.com/js/external-tracking.js"
+      data-tracking-id="tk_355c1601b41340b08498d3c6a4dc80d0">
+    </script>
+
+    <!-- Personalise greeting from URL param -->
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var name = params.get('name');
+        if (name) {
+            var h1 = document.querySelector('h1');
+            if (h1) h1.innerHTML = 'See you on <span class="italic text-[#d6b796]">9th May</span>, ' + name.charAt(0).toUpperCase() + name.slice(1);
+        }
+    })();
+    </script>
+
+</body></html>
