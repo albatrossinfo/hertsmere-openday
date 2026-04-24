@@ -1624,7 +1624,8 @@ animation-play-state: paused;
 
             <!-- Flexi 4 -->
             <div class="bg-white border border-[#e0e0e0] rounded-2xl p-7 text-center card-hover-state scroll-reveal reveal-hidden stagger-4 flex flex-col h-full relative z-0">
-                <p class="font-work text-[#999] text-[0.72rem] uppercase tracking-[0.15em] mb-2">The frequent golfer</p>
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#d6b796] text-[#1a1a1a] px-5 py-1.5 rounded-full text-[0.72rem] font-work font-semibold tracking-wide shadow-md whitespace-nowrap">Best Open Day Value</div>
+                <p class="font-work text-[#999] text-[0.72rem] uppercase tracking-[0.15em] mb-2 mt-2">The frequent golfer</p>
                 <h3 class="font-serif font-semibold text-[#2d3d4d] text-[1.35rem] mb-3">Flexi 4</h3>
                 <div class="flex items-baseline justify-center gap-1 mb-1">
                     <span class="font-serif font-bold text-[#2d3d4d]" style="font-size: 2.6rem; line-height: 1;">£1,200</span>
@@ -1661,6 +1662,10 @@ animation-play-state: paused;
                         <div class="flex items-start gap-2.5">
                             <iconify-icon icon="solar:dish-bold" class="text-[#d6b796] text-[1rem] shrink-0 mt-0.5"></iconify-icon>
                             <p class="font-work text-white text-[0.8rem] leading-snug"><span class="font-bold">Free meal for 4</span> <span class="text-white/60">at Script Restaurant</span></p>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-white/10 flex justify-between items-center">
+                            <span class="font-work text-white/50 text-[0.72rem] uppercase tracking-wide">Open Day saving</span>
+                            <span class="font-work text-[#d6b796] font-bold text-[0.88rem]">£175+ back instantly</span>
                         </div>
                     </div>
                 </div>
@@ -2526,6 +2531,78 @@ animation-play-state: paused;
         }
 
 
+    </script>
+
+    <!-- Bonus Points Popup -->
+    <div id="popup-bonus" class="fixed inset-0 z-[70] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/70 transition-opacity duration-300 opacity-0 modal-overlay" onclick="closeBonusPopup()"></div>
+        <div class="fixed inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <div class="pointer-events-auto relative w-full max-w-md bg-[#2d3d4d] rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 ease-out modal-panel overflow-hidden">
+                <!-- Close -->
+                <button onclick="closeBonusPopup()" class="absolute top-3 right-3 z-20 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>
+                </button>
+                <!-- Header -->
+                <div class="bg-gradient-to-br from-[#1e3040] to-[#2d3d4d] px-7 pt-8 pb-6 text-center border-b border-white/10">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#00a1a2]/20 border border-[#00a1a2]/30 mb-4">
+                        <iconify-icon icon="solar:gift-bold" class="text-[#00a1a2]" width="28" height="28"></iconify-icon>
+                    </div>
+                    <p class="font-work text-[#d6b796] text-[0.65rem] font-bold uppercase tracking-[0.2em] mb-2">Open Day Exclusive &mdash; 9th May Only</p>
+                    <h3 class="font-serif font-semibold text-white leading-tight" style="font-size: 1.55rem;">Get up to £175 back<br>when you join today</h3>
+                </div>
+                <!-- Tier breakdown -->
+                <div class="px-7 py-5 space-y-2 border-b border-white/10">
+                    <div class="flex justify-between items-center px-2">
+                        <span class="font-work text-white/60 text-[0.88rem]">Flexi 2</span>
+                        <span class="font-work text-[#00a1a2] font-semibold text-[0.88rem]">+£50 in bonus points</span>
+                    </div>
+                    <div class="flex justify-between items-center px-2">
+                        <span class="font-work text-white/60 text-[0.88rem]">Flexi 3</span>
+                        <span class="font-work text-[#00a1a2] font-semibold text-[0.88rem]">+£100 in bonus points</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-[#d6b796]/10 border border-[#d6b796]/25 rounded-lg px-3 py-2.5">
+                        <span class="font-work text-white font-semibold text-[0.9rem]">Flexi 4 <span class="text-[#d6b796] text-[0.7rem] font-normal ml-1">best deal</span></span>
+                        <span class="font-work text-[#d6b796] font-bold text-[0.9rem]">+£175 in bonus points</span>
+                    </div>
+                </div>
+                <!-- CTA -->
+                <div class="px-7 py-5 text-center">
+                    <p class="font-work text-white/45 text-[0.78rem] mb-4 leading-relaxed">Plus a free meal at Script Restaurant on Flexi 2, 3 and 4. Points credited on the day you join.</p>
+                    <a href="#pricing" onclick="closeBonusPopup()" class="block w-full bg-[#00a1a2] hover:bg-[#008f90] text-white font-work font-semibold text-[0.95rem] py-3 rounded-xl transition-colors duration-200 mb-3">See membership options</a>
+                    <button onclick="closeBonusPopup()" class="font-work text-white/40 text-[0.8rem] hover:text-white/60 transition-colors">No thanks</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeBonusPopup() {
+            var popup = document.getElementById('popup-bonus');
+            var overlay = popup.querySelector('.modal-overlay');
+            var panel = popup.querySelector('.modal-panel');
+            overlay.classList.add('opacity-0');
+            panel.classList.remove('scale-100', 'opacity-100');
+            panel.classList.add('scale-95', 'opacity-0');
+            setTimeout(function() { popup.classList.add('hidden'); document.body.style.overflow = ''; }, 300);
+            sessionStorage.setItem('bonusPopupSeen', '1');
+        }
+
+        if (!sessionStorage.getItem('bonusPopupSeen')) {
+            setTimeout(function() {
+                var popup = document.getElementById('popup-bonus');
+                var overlay = popup.querySelector('.modal-overlay');
+                var panel = popup.querySelector('.modal-panel');
+                popup.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
+                        overlay.classList.remove('opacity-0');
+                        panel.classList.remove('scale-95', 'opacity-0');
+                        panel.classList.add('scale-100', 'opacity-100');
+                    });
+                });
+            }, 30000);
+        }
     </script>
 
     <!-- GoHighLevel External Tracking -->
