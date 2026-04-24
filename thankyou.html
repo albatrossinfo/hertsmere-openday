@@ -72,13 +72,13 @@ body {
                 <iconify-icon icon="solar:check-circle-bold" class="text-[#00a1a2]" width="36" height="36"></iconify-icon>
             </div>
 
-            <p class="font-work text-[#00a1a2] text-[0.72rem] font-semibold uppercase tracking-[0.2em] mb-3">You're confirmed</p>
+            <p class="font-work text-[#00a1a2] text-[0.72rem] font-semibold uppercase tracking-[0.2em] mb-3">You're in &mdash; one more step</p>
             <h1 class="font-serif font-semibold text-white leading-tight mb-4" style="font-size: clamp(2rem, 4vw, 3rem);">
-                See you on <span class="italic text-[#d6b796]">9th May</span>
+                Now book your tee time
             </h1>
             <div class="gold-separator mx-auto"></div>
             <p class="font-work text-white/75 text-[1.05rem] leading-relaxed max-w-xl mx-auto mb-8">
-                We've got your details. Drop in any time between 10am and 2pm — no need to arrive at a specific time.
+                Tee times on Open Day go fast. Secure yours below before they're gone &mdash; and if you join on the day, your bonus points cover the green fee.
             </p>
 
             <!-- Event details strip -->
@@ -104,13 +104,13 @@ body {
         <div class="max-w-4xl mx-auto">
 
             <div class="text-center mb-10">
-                <p class="font-work text-[#00a1a2] text-[0.72rem] font-semibold uppercase tracking-[0.2em] mb-3">Optional</p>
+                <p class="font-work text-[#00a1a2] text-[0.72rem] font-semibold uppercase tracking-[0.2em] mb-3">Book your appointment</p>
                 <h2 class="font-serif font-semibold text-[#2d3d4d] mb-3 tracking-tight" style="font-size: clamp(1.6rem, 3vw, 2.1rem);">
-                    Want to book a round while you're here?
+                    Secure your tee time before they go
                 </h2>
                 <div class="gold-separator mx-auto"></div>
                 <p class="font-work text-[#666] text-[1rem] max-w-lg mx-auto">
-                    Book a tee time to fit around the Open Day. If you join on the day, your bonus points cover the green fee.
+                    Slots on Open Day are limited. Pick a time that suits you and we'll have you on the tee. If you join on the day, your bonus points cover the cost of the round.
                 </p>
             </div>
 
@@ -209,8 +209,9 @@ body {
         var params = new URLSearchParams(window.location.search);
         var name = params.get('name');
         if (name) {
+            var first = name.charAt(0).toUpperCase() + name.slice(1);
             var h1 = document.querySelector('h1');
-            if (h1) h1.innerHTML = 'See you on <span class="italic text-[#d6b796]">9th May</span>, ' + name.charAt(0).toUpperCase() + name.slice(1);
+            if (h1) h1.innerHTML = first + ', book your tee time';
         }
     })();
     </script>
